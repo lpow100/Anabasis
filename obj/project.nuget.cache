@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "z+tp6xCXMkQ=",
+  "success": true,
+  "projectFilePath": "/home/trinary/.local/share/Terraria/tModLoader/ModSources/Anabasis/Anabasis.csproj",
+  "expectedPackageFiles": [
+    "/home/trinary/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.29/microsoft.aspnetcore.app.ref.8.0.29.nupkg.sha512"
+  ],
+  "logs": []
+}

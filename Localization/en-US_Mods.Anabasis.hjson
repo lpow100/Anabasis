@@ -1,0 +1,71 @@
+# This file will automatically update with entries for new content after a build and reload.
+# Please read https://github.com/tModLoader/tModLoader/wiki/Localization to learn more about localization and these files.
+
+Items: {
+	PosionedStick: {
+		DisplayName: Posioned Stick
+		Tooltip: Shoots small posioned globs
+	}
+
+	BrokenBottle: {
+		DisplayName: Broken Bottle
+		Tooltip:
+			'''
+			You can throw the glass shards
+			Be careful to not get cut
+			'''
+	}
+
+	ExplosiveVial: {
+		DisplayName: Explosive Vial
+		Tooltip: A potion dealing explosive damage in an area
+	}
+
+	RaggedStorageCloth: {
+		DisplayName: Ragged Storage Cloth
+		Tooltip: ""
+	}
+
+	FlamingCrimsrod: {
+		DisplayName: Flaming Crimsrod
+		Tooltip: ""
+	}
+
+	FlamingCorruptor: {
+		DisplayName: Flaming Corruptor
+		Tooltip: ""
+	}
+
+	StingerPole: {
+		DisplayName: Stinger Pole
+		Tooltip: ""
+	}
+
+	BloodSyringe: {
+		DisplayName: Blood Syringe
+		Tooltip: ""
+	}
+
+	PainfulPocketSand: {
+		DisplayName: Painful Pocket Sand
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	PoisonedGlob.DisplayName: Poisoned Glob
+	GlassShards.DisplayName: Glass Shards
+	ExplosiveVialProjectile.DisplayName: Explosive Vial Projectile
+	FlamingCrimsrodProjectile.DisplayName: Flaming Crimsrod Projectile
+	FlamingCorruptorProjectile.DisplayName: Flaming Corruptor Projectile
+	StingerPoleProjectile.DisplayName: Stinger Pole Projectile
+	BloodSyringeProjectile.DisplayName: Blood Syringe Projectile
+	PainfulPocketSandProjectile.DisplayName: Painful Pocket Sand Projectile
+}
+
+Buffs: {
+	PokedDebuff: {
+		DisplayName: Poked Debuff
+		Description: Mods.Anabasis.Buffs.PokedDebuff.Description
+	}
+}

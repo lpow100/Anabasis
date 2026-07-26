@@ -1,0 +1,3 @@
+displayName = Anabsis
+author = Trinary
+version = 0.1
