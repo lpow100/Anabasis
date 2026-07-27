@@ -12,7 +12,7 @@ namespace Anabasis.Content.Items.Weapons
 
 			// Common Properties
 			Item.rare = ItemRarityID.Blue;
-			Item.value = Item.sellPrice(silver: 10);
+			Item.value = Item.sellPrice(silver: 15);
 			Item.maxStack = Item.CommonMaxStack;
 
 			// Use Properties

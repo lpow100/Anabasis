@@ -50,6 +50,11 @@ Items: {
 		DisplayName: Painful Pocket Sand
 		Tooltip: ""
 	}
+
+	InterstellarSnowflake: {
+		DisplayName: Interstellar Snowflake
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -61,6 +66,7 @@ Projectiles: {
 	StingerPoleProjectile.DisplayName: Stinger Pole Projectile
 	BloodSyringeProjectile.DisplayName: Blood Syringe Projectile
 	PainfulPocketSandProjectile.DisplayName: Painful Pocket Sand Projectile
+	InterstellarSnowflakeProjectile.DisplayName: Interstellar Snowflake Projectile
 }
 
 Buffs: {
