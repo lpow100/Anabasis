@@ -55,6 +55,21 @@ Items: {
 		DisplayName: Interstellar Snowflake
 		Tooltip: ""
 	}
+
+	Fulgurite: {
+		DisplayName: Fulgurite
+		Tooltip: ""
+	}
+
+	FulguriteHamaxe: {
+		DisplayName: Fulgurite Hamaxe
+		Tooltip: ""
+	}
+
+	FulguritePickaxe: {
+		DisplayName: Fulgurite Pickaxe
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -73,5 +88,10 @@ Buffs: {
 	PokedDebuff: {
 		DisplayName: Poked Debuff
 		Description: Mods.Anabasis.Buffs.PokedDebuff.Description
+	}
+
+	ShockedDebuff: {
+		DisplayName: Shocked Debuff
+		Description: Mods.Anabasis.Buffs.ShockedDebuff.Description
 	}
 }

@@ -34,7 +34,7 @@ namespace Anabasis.Content.Items.Weapons
 
 			// Projectile Properties
 			Item.shootSpeed = 12f;
-			Item.shoot = ModContent.ProjectileType<Projectiles.PainfulPocketSandProjectile>(); // The projectile that will be thrown
+			Item.shoot = ModContent.ProjectileType<Projectiles.InterstellarSnowflakeProjectile>(); // The projectile that will be thrown
 		}
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.

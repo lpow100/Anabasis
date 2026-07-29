@@ -23,6 +23,7 @@ namespace Anabasis.Content.Projectiles
 			Projectile.friendly = true;
 			Projectile.DamageType = ModContent.GetInstance<AlchemistDamageClass>();
 			Projectile.timeLeft = 1200;
+			Projectile.penetrate = 3;
 
 			Projectile.aiStyle = ProjAIStyleID.Arrow;
 			AIType = ProjectileID.Bone;

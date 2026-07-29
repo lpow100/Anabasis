@@ -23,6 +23,7 @@ namespace Anabasis.Content.Projectiles
 			Projectile.friendly = true;
 			Projectile.DamageType = ModContent.GetInstance<AlchemistDamageClass>();
 			Projectile.timeLeft = 1200;
+			Projectile.penetrate = 3;
 
 			Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 			AIType = ProjectileID.Shuriken;
@@ -38,5 +39,10 @@ namespace Anabasis.Content.Projectiles
 				dust.scale *= 0.9f;
 			}
 		}
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(BuffID.Frostburn, 200);
+        }
 	}
 }

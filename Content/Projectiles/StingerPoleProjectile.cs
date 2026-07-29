@@ -1,4 +1,3 @@
-using Anabasis.Common.DamageClasses;
 using Anabasis.Content.Items.Weapons;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -11,34 +10,219 @@ namespace Anabasis.Content.Projectiles
 	// This projectile showcases advanced AI code. Of particular note is a showcase on how projectiles can stick to NPCs in a manner similar to the behavior of vanilla weapons such as Bone Javelin, Daybreak, Blood Butcherer, Stardust Cell Minion, and Tentacle Spike. This code is modeled closely after Bone Javelin.
 	public class StingerPoleProjectile : ModProjectile
 	{
-		public override void SetDefaults() {
-			Projectile.width = 38; // The width of projectile hitbox
-			Projectile.height = 38; // The height of projectile hitbox
-
-			// Copy the ai of any given projectile using AIType, since we want
-			// the projectile to essentially behave the same way as the vanilla projectile.
-			AIType = ProjectileID.WoodenArrowFriendly;
-
-			Projectile.friendly = true; // Can the projectile deal damage to enemies?
-			Projectile.DamageType = ModContent.GetInstance<AlchemistDamageClass>(); // Is the projectile shoot by a ranged weapon?
-			Projectile.ignoreWater = true; // Does the projectile's speed be influenced by water?
-			Projectile.tileCollide = false; // Can the projectile collide with tiles?
-			Projectile.timeLeft = 60; // Each update timeLeft is decreased by 1. Once timeLeft hits 0, the Projectile will naturally despawn. (60 ticks = 1 second)
-
-			Projectile.penetrate = -1;
-			// 1: Projectile.penetrate = 1; // Will hit even if npc is currently immune to player
-			// 2a: Projectile.penetrate = -1; // Will hit and unless 3 is use, set 10 ticks of immunity
-			// 2b: Projectile.penetrate = 3; // Same, but max 3 hits before dying
-			// 5: Projectile.usesLocalNPCImmunity = true;
-			// 5a: Projectile.localNPCHitCooldown = -1; // 1 hit per npc max
-			// 5b: Projectile.localNPCHitCooldown = 20; // 20 ticks before the same npc can be hit again
+		// These properties wrap the usual ai arrays for cleaner and easier to understand code.
+		// Are we sticking to a target?
+		public bool IsStickingToTarget {
+			get => Projectile.ai[0] == 1f;
+			set => Projectile.ai[0] = value ? 1f : 0f;
 		}
 
-		// See comments at the beginning of the class
+		// Index of the current target
+		public int TargetWhoAmI {
+			get => (int)Projectile.ai[1];
+			set => Projectile.ai[1] = value;
+		}
+
+		public int GravityDelayTimer {
+			get => (int)Projectile.ai[2];
+			set => Projectile.ai[2] = value;
+		}
+
+		public float StickTimer {
+			get => Projectile.localAI[0];
+			set => Projectile.localAI[0] = value;
+		}
+
+		public override void SetDefaults() {
+			Projectile.width = 10; // The width of projectile hitbox
+			Projectile.height = 46; // The height of projectile hitbox
+			Projectile.aiStyle = 0; // The ai style of the projectile (0 means custom AI). For more please reference the source code of Terraria
+			Projectile.friendly = true; // Can the projectile deal damage to enemies?
+			Projectile.hostile = false; // Can the projectile deal damage to the player?
+			Projectile.DamageType = DamageClass.Ranged; // Makes the projectile deal ranged damage. You can set in to DamageClass.Throwing, but that is not used by any vanilla items
+			Projectile.penetrate = 1; // How many monsters the projectile can penetrate.
+			Projectile.timeLeft = 300; // The live time for the projectile (60 = 1 second, so 600 is 10 seconds)
+			Projectile.alpha = 0; // The transparency of the projectile, 255 for completely transparent. Our custom AI below fades our projectile in. Make sure to delete this if you aren't using an aiStyle that fades in.
+			Projectile.light = 0.5f; // How much light emit around the projectile
+			Projectile.ignoreWater = true; // Does the projectile's speed be influenced by water?
+			Projectile.tileCollide = true; // Can the projectile collide with tiles?
+			// NOTE: Projectile.drawLayer / ProjectileDrawLayerID are not available in v2026.5.30 + tML 1.4.4.9 API.
+			// Behind-tile/behind-npc behavior is handled via DrawBehind below.
+		}
+
+		private const int GravityDelay = 45;
+
+		public override void AI() {
+			UpdateAlpha();
+
+			// Run either the Sticky AI or Normal AI
+			if (IsStickingToTarget) {
+				StickyAI();
+			}
+			else {
+				NormalAI();
+			}
+		}
+
+		private void NormalAI() {
+			// If you want the projectile to only drop/gravity after the delay,
+			// keep the timer clamped at GravityDelay so it doesn't grow forever.
+			GravityDelayTimer++;
+			if (GravityDelayTimer > GravityDelay) {
+				GravityDelayTimer = GravityDelay;
+			}
+
+			// For a little while, the javelin will travel with the same speed, but after this, the javelin drops velocity very quickly.
+			if (GravityDelayTimer >= GravityDelay) {
+				// wind resistance
+				Projectile.velocity.X *= 0.98f;
+				// gravity
+				Projectile.velocity.Y += 0.35f;
+			}
+
+			// Offset the rotation by 90 degrees because the sprite is oriented vertically.
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
+
+			// Spawn some random dusts as the javelin travels
+			if (Main.rand.NextBool(3)) {
+				Dust dust = Dust.NewDustDirect(
+					Projectile.position,
+					Projectile.height == 0 ? Projectile.width : Projectile.height,
+					Projectile.width,
+					DustID.JungleSpore,
+					Projectile.velocity.X * .2f,
+					Projectile.velocity.Y * .2f,
+					200,
+					Scale: 1.2f
+				);
+				dust.velocity += Projectile.velocity * 0.3f;
+				dust.velocity *= 0.2f;
+			}
+
+			if (Main.rand.NextBool(4)) {
+				Dust dust = Dust.NewDustDirect(
+					Projectile.position,
+					Projectile.height,
+					Projectile.width,
+					DustID.JungleSpore,
+					0,
+					0,
+					254,
+					Scale: 0.3f
+				);
+				dust.velocity += Projectile.velocity * 0.5f;
+				dust.velocity *= 0.5f;
+			}
+		}
+
+		private const int StickTime = 60 * 15; // 15 seconds
+		private void StickyAI() {
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = false;
+			StickTimer += 1f;
+
+			// Every 30 ticks, the javelin will perform a hit effect
+			bool hitEffect = StickTimer % 30f == 0f;
+
+			int npcTarget = TargetWhoAmI;
+			if (StickTimer >= StickTime || npcTarget < 0 || npcTarget >= 200) {
+				Projectile.Kill();
+			}
+			else if (Main.npc[npcTarget].active && !Main.npc[npcTarget].dontTakeDamage) {
+				// Set the projectile's position relative to the target's center
+				Projectile.Center = Main.npc[npcTarget].Center - Projectile.velocity * 2f;
+				Projectile.gfxOffY = Main.npc[npcTarget].gfxOffY;
+
+				if (hitEffect) {
+					// Perform a hit effect here, causing the npc to react as if hit.
+					// Note that this does NOT damage the NPC, the damage is done through the debuff.
+					Main.npc[npcTarget].HitEffect(0, 1.0);
+				}
+			}
+			else {
+				Projectile.Kill();
+			}
+		}
+
+		public override void OnKill(int timeLeft) {
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position); // Play a death sound
+			Vector2 usePos = Projectile.position; // Position to use for dusts
+
+			// Offset the rotation by 90 degrees because the sprite is oriented vertically.
+			Vector2 rotationVector = (Projectile.rotation - MathHelper.ToRadians(90f)).ToRotationVector2(); // rotation vector to use for dust velocity
+			usePos += rotationVector * 16f;
+
+			// Spawn some dusts upon javelin death
+			for (int i = 0; i < 20; i++) {
+				// Create a new dust
+				Dust dust = Dust.NewDustDirect(usePos, Projectile.width, Projectile.height, DustID.Tin);
+				dust.position = (dust.position + Projectile.Center) / 2f;
+				dust.velocity += rotationVector * 2f;
+				dust.velocity *= 0.5f;
+				dust.noGravity = true;
+				usePos -= rotationVector * 8f;
+			}
+
+			// Make sure to only spawn items if you are the projectile owner.
+			// This is an important check as Kill() is called on clients, and you only want the item to drop once
+			if (Projectile.owner == Main.myPlayer) {
+				// Drop a javelin item, 1 in 18 chance (~5.5% chance)
+				int item = 0;
+				if (Main.rand.NextBool(18)) {
+					item = Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<StingerPole>());
+				}
+
+				// Sync the drop for multiplayer
+				if (Main.netMode == NetmodeID.MultiplayerClient && item >= 0) {
+					NetMessage.SendData(MessageID.SyncItem, -1, -1, null, item, 1f);
+				}
+			}
+		}
+
+		private const int MaxStickingJavelin = 6; // This is the max amount of javelins able to be attached to a single NPC
+		private readonly Point[] stickingJavelins = new Point[MaxStickingJavelin]; // The point array holding for sticking javelins
+
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			// 3a: target.immune[Projectile.owner] = 20;
-			// 3b: target.immune[Projectile.owner] = 5;
-			target.AddBuff(BuffID.Poisoned, 250);
+			IsStickingToTarget = true;
+			StickTimer = 0f;
+
+			TargetWhoAmI = target.whoAmI; // Set the target whoAmI
+			Projectile.velocity = (target.Center - Projectile.Center) * 0.75f; // Change velocity based on delta center of targets
+			Projectile.netUpdate = true; // netUpdate this javelin
+			Projectile.damage = 0; // Makes sure the sticking javelins do not deal damage anymore
+
+			// ExampleJavelinBuff handles the damage over time (DoT)
+			target.AddBuff(BuffID.Poisoned, 300);
+
+			// KillOldestJavelin will kill the oldest projectile stuck to the specified npc.
+			Projectile.KillOldestJavelin(Projectile.whoAmI, Type, target.whoAmI, stickingJavelins);
+		}
+
+		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac) {
+			// For going through platforms and such, javelins use a tad smaller size
+			width = height = 10;
+			return true;
+		}
+
+		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) {
+			// By shrinking target hitboxes by a small amount, this projectile only hits if it more directly hits the target.
+			if (targetHitbox.Width > 8 && targetHitbox.Height > 8) {
+				targetHitbox.Inflate(-targetHitbox.Width / 8, -targetHitbox.Height / 8);
+			}
+			return projHitbox.Intersects(targetHitbox);
+		}
+
+		// Change this number if you want to alter how the alpha changes
+		private const int AlphaFadeInSpeed = 25;
+
+		private void UpdateAlpha() {
+			if (Projectile.alpha > 0) {
+				Projectile.alpha -= AlphaFadeInSpeed;
+			}
+
+			if (Projectile.alpha < 0) {
+				Projectile.alpha = 0;
+			}
 		}
 	}
 }

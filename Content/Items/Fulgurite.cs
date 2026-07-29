@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace Anabasis.Content.Items
 {
-	public class Anabasis : ModItem
+	public class Fulgurite : ModItem
 	{
 		public override void SetStaticDefaults() {
 			// The text shown below some item names is called a tooltip. Tooltips are defined in the localization files. See en-US.hjson.

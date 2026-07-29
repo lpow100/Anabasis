@@ -27,7 +27,7 @@ namespace Anabasis.Content.Items.Weapons
             Item.height = 38;
 
 			// Weapon Properties
-			Item.damage = 12;
+			Item.damage = 13;
 			Item.knockBack = 6.5f;
 			Item.noUseGraphic = true; // When true, the item's sprite will not be visible while the item is in use. This is true because the spear projectile is what's shown so we do not want to show the spear sprite as well.
 			Item.DamageType = ModContent.GetInstance<AlchemistDamageClass>();
