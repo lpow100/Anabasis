@@ -4,7 +4,7 @@ Anabasis is a greek word that means a going or marching up, in this mod it repre
 The [[Alchemist]] is a new class added for this mod, he is not directly connected with the idea of Anabasis.
 Other additions include:
 - [[Bosses]]
-- [[Ores]]
+- [[Materials]]
 - and other [[Changes]]
 Post-ML content is the central idea behind this mod, while there are things added in Pre-HM and HM they are not central to this mod and are to balance the game and/or to add to the idea of Anabasis with additions like the Giant Harpy to the sky islands.
 ## Use with other mods

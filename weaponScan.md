@@ -1,0 +1,16 @@
+| Name | Damage | Damage Class | Knockback | Use Time | Rarity | Value | Consumable | Auto Reuse | Projectile | Shoot Speed | Mana | Recipe |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| BlazingBottle | 3 | AlchemistDamageClass | 6f | 28 | ItemRarityID.Green | Item.buyPrice(silver: 35) | true | true | BlazingBottleProjectile | 12f | - | - |
+| BloodSyringe | 16 | AlchemistDamageClass | 5f | 18 | ItemRarityID.Blue | silver: 10 | true | true | Projectiles.BloodSyringeProjectile | 12f | - | Makes 4: 12x IronBar, 2x LesserHealingPotion, 12x LeadBar, 2x LesserHealingPotion (at Bottles, Bottles) |
+| BoneSpikes | 23 | AlchemistDamageClass | 6f | 22 | ItemRarityID.Orange | Item.buyPrice(silver: 50) | true | - | BoneSpikesProjectile | 13f | - | Makes 5: 3x Spike, 2x Bone (at Anvils) |
+| BottleCannon | 72 | AlchemistDamageClass | 6.5f | 39 | ItemRarityID.LightRed | gold: 3 | - | true | GlassShards | 13.25f | - | - |
+| BrokenBottle | 10 | AlchemistDamageClass | 5f | 18 | ItemRarityID.White | copper: 90 | true | true | Projectiles.GlassShards | 12f | - | Makes 1: 1x Bottle, 1x StoneBlock (at Anvils) |
+| CoralAmalgamation | 31 | AlchemistDamageClass | 5f | 15 | ItemRarityID.Green | silver: 70 | true | true | Projectiles.CoralAmalgamationProjectile | 13.5f | - | Makes 12: 2x CoralstoneBlock, 3x ShellPileBlock, 6x TissueSample, 2x CoralstoneBlock, 3x ShellPileBlock, 6x ShadowScale (at Anvils, Anvils) |
+| ExplosiveVial | 16 | AlchemistDamageClass | - | 40 | ItemRarityID.Blue | Item.buyPrice(0, 0, 20, 0) | true | - | Projectiles.ExplosiveVialProjectile | 6f | - | Makes 3: 1x Bottle, 5x IronOre, 1x Bomb, 1x Bottle, 5x LeadOre, 1x Bomb (at Bottles, Bottles) |
+| FlamingCorruptor | 16 | AlchemistDamageClass | 6.5f | 28 | ItemRarityID.Blue | silver: 30 | - | true | FlamingCorruptorProjectile | 2f | - | Makes 1: 13x DemoniteBar, 5x Chain, 150x Torch |
+| FlamingCrimsrod | 16 | AlchemistDamageClass | 6.5f | 32 | ItemRarityID.Blue | silver: 30 | - | true | FlamingCrimsrodProjectile | 2f | - | Makes 1: 13x CrimtaneBar, 5x Chain, 150x Torch |
+| InterstellarSnowflake | 14 | AlchemistDamageClass | 5f | 16 | ItemRarityID.Blue | silver: 15 | true | true | Projectiles.InterstellarSnowflakeProjectile | 12.5f | - | Makes 6: 15x SandBlock, 1x AntlionMandible, 10x FossilOre (at Anvils) |
+| PainfulPocketSand | 25 | AlchemistDamageClass | 5f | 27 | ItemRarityID.Blue | silver: 10 | true | true | Projectiles.PainfulPocketSandProjectile | 12f | - | Makes 6: 15x SandBlock, 1x AntlionMandible, 10x FossilOre (at Anvils) |
+| PosionedStick | 3 | AlchemistDamageClass | 6 | 28 | ItemRarityID.White | Item.buyPrice(copper: 75) | - | true | PoisonedGlob | 6f | - | Makes 1: 20x Wood (at WorkBenches) |
+| SporeMixture | 18 | AlchemistDamageClass | 3f | 23 | ItemRarityID.Green | silver: 120 | true | true | Projectiles.SporeMixtureProjectile | 13f | - | Makes 3: 1x Fulgurite, 5x GlowingMushroom, 1x Bottle (at Bottles) |
+| StingerPole | 24 | AlchemistDamageClass | 6.5f | 28 | ItemRarityID.Blue | silver: 10 | true | true | StingerPoleProjectile | 6f | - | Makes 5: 1x PlatinumBar, 1x JungleSpores, 1x Stinger |

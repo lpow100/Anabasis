@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Anabasis.Content.Buffs 
+namespace Anabasis.Content.Buffs
 {
     public class ShockedDebuff : ModBuff
     {
@@ -17,16 +17,19 @@ namespace Anabasis.Content.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            if (!npc.active || npc.life <= 0) return;
-
-            // Optional: also stop rotation/attacks that might be driven by AI movement.
-            // But do NOT disable gravity.
-            npc.ai[0] = 0f;  // only if your mod/pattern uses ai[0] for movement
-            npc.ai[1] = 0f;  // idem
-
-            // Optional: prevent the NPC from running tile-based pathing/moving
-            // if your NPC AI respects these flags.
-            npc.netUpdate = true;
+            if (!npc.boss)
+            {
+                npc.velocity.X *= 0;
+                npc.velocity.Y *= 0;
+                npc.frameCounter = 0;
+            }
+            else
+            {
+                npc.velocity.X *= 0.65f;
+                npc.velocity.Y *= 0.65f;
+                npc.frameCounter *= 0.65;
+            }
         }
+
     }
 }

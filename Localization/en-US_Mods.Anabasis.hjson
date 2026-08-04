@@ -70,6 +70,51 @@ Items: {
 		DisplayName: Fulgurite Pickaxe
 		Tooltip: ""
 	}
+
+	CoralAmalgamation: {
+		DisplayName: Coral Amalgamation
+		Tooltip: ""
+	}
+
+	SporeMixture: {
+		DisplayName: Spore Mixture
+		Tooltip: ""
+	}
+
+	ShockBolt: {
+		DisplayName: Shock Bolt
+		Tooltip: ""
+	}
+
+	CloudAlchemyBag: {
+		DisplayName: Cloud Alchemy Bag
+		Tooltip: ""
+	}
+
+	BottleCannon: {
+		DisplayName: Bottle Cannon
+		Tooltip: ""
+	}
+
+	BoneSpikes: {
+		DisplayName: Bone Spikes
+		Tooltip: ""
+	}
+
+	BlazingBottle: {
+		DisplayName: Blazing Bottle
+		Tooltip: ""
+	}
+
+	HoneyVial: {
+		DisplayName: Honey Vial
+		Tooltip: ""
+	}
+
+	PoisonedStick: {
+		DisplayName: Poisoned Stick
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -82,6 +127,16 @@ Projectiles: {
 	BloodSyringeProjectile.DisplayName: Blood Syringe Projectile
 	PainfulPocketSandProjectile.DisplayName: Painful Pocket Sand Projectile
 	InterstellarSnowflakeProjectile.DisplayName: Interstellar Snowflake Projectile
+	CoralAmalgamationProjectile.DisplayName: Coral Amalgamation Projectile
+	SporeCloud1.DisplayName: Spore Cloud1
+	SporeCloud2.DisplayName: Spore Cloud2
+	SporeCloud3.DisplayName: Spore Cloud3
+	SporeMixtureProjectile.DisplayName: Spore Mixture Projectile
+	ShockBoltProjectile.DisplayName: Shock Bolt Projectile
+	BoneShard.DisplayName: Bone Shard
+	BoneSpikesProjectile.DisplayName: Bone Spikes Projectile
+	BlazingBottleProjectile.DisplayName: Blazing Bottle Projectile
+	HoneyVialProjectile.DisplayName: Honey Vial Projectile
 }
 
 Buffs: {

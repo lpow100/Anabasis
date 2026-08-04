@@ -52,17 +52,17 @@ Inflicts frostburn and deals 14 damage
 6 are crafted with 3 Shiverthorn and 1 meteorite bar
 #### Ocean Amalgamation
 Medium-High damage consumable weapon
-Deals 26 damage
-1 is crafted with 5 coral and 3 tissue samples/Shadow Scales
+Deals 31 damage
+12 are crafted with 2 coralstone block, 3 Shell Piles and 6 tissue samples/Shadow Scales
 ### Pre-Beerclops
 #### Shock Bolt
 Medium damage consumable weapon
 incflicts shocked debuff (short stun) for 0.2 seconds and deals 18 damage
-10 are crafted with 3 [[Ores#Fulgurite|Fulgurite]] and 1 lens
-#### Spore Cloud
+10 are crafted with 3 [[Materials#Fulgurite|Fulgurite]] and 1 lens and an anvil
+#### Spore Mixture
 Medium damage consumable weapon
 Creates a blue cloud for 4 seconds that deals 5 dps
-5 are crafted with 1 [[Ores#Fulgurite|Fulgurite]] and 5 blue mushrooms
+3 are crafted with 1 [[Materials#Fulgurite|Fulgurite]] and 5 blue mushrooms and a bottle at a bottle
 ### Pre-Skeletron
 #### Bottle of fire
 Medium-low damage consumable weapon
@@ -75,7 +75,7 @@ inflicts poisoned debuff for 10 seconds and deals 1 damage
 #### Honey Vial
 Medium damage consumable weapon
 deals 17 damage and realease 1-4 bees
-3 are crafted with 1 bee wax and 1 bottled honey
+3 are crafted with 1 bee wax and 2 bottled honey
 ### Pre-WOF
 #### Elecronic Zapper
 Medium-high damage comsunable weapon
@@ -88,11 +88,26 @@ inflicks poked debuff for 2 seconds and deals 19 damage
 ### Pre-Mech
 #### Volatile Vial
 Medium-low damage consumable AOE weaon
-deals 80 damage in an AOE
+deals 80 damage in an AOE with slow attack speed
 5 are crafted with a bomb, explosive powder, a soul of light and a bottle at a bottle
+### Pre-Cultist
+#### Lizhard Hard Rock
+High damage consumable weapon
+deals 58 damage with fast attack speed
+10 are crafted with 50 lizhard bricks and 1 wooden spike at an anvil
 ## Accessories
 ### Pre-HM
-#### Cloudy Materials bag
+#### Cloudy Alchemy bag
 -5% speed
 17% chance to not consume alchemist weapon
 Dropped from Giant Harpy
+### HM
+#### Alchemist Emblem
++10% alchemy damage
+## Armor
+### Pre-Boss
+#### Ragged Armor Set
+**Headpiece - Well Worn Headgear:**
+
+
+
