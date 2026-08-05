@@ -107,7 +107,11 @@ Dropped from Giant Harpy
 ## Armor
 ### Pre-Boss
 #### Ragged Armor Set
-**Headpiece - Well Worn Headgear:**
+##### Headpiece - Well Worn Headgear:
++5% alchemist damage
+##### Chestplate - Ragged Storage Cloth:
++10% alchemist weapon save chance
+
 
 
 

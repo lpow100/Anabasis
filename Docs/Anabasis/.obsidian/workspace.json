@@ -41,12 +41,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Class Aditions/Melee.md",
+                "file": "Class Aditions/Alchemist.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Melee"
+              "title": "Alchemist"
+            }
+          },
+          {
+            "id": "a38da87e7c3fa96b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "To Do.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "To Do"
             }
           },
           {
@@ -64,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -137,12 +151,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Class Aditions/Melee.md",
+                "file": "To Do.md",
                 "linksCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Melee"
+              "title": "Outgoing links from To Do"
             }
           },
           {
@@ -151,7 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Class Aditions/Melee.md",
+                "file": "To Do.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -161,7 +175,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Melee"
+              "title": "Backlinks for To Do"
             }
           },
           {
@@ -199,21 +213,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Class Aditions/Melee.md",
+                "file": "To Do.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Melee"
+              "title": "Outline of To Do"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 253.5,
-    "collapsed": true
+    "width": 253.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -226,8 +239,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "317ee7634d751549",
+  "active": "01b71ec940a49f3c",
   "lastOpenFiles": [
+    "Bosses.md",
+    "To Do.md",
     "Class Aditions/Alchemist.md",
     "Class Aditions/Melee.md",
     "Class Aditions/Summoner.md",
@@ -235,7 +250,6 @@
     "Class Setups.md",
     "Class Aditions",
     "Untitled.canvas",
-    "Bosses.md",
     "Anabasis.md",
     "Changes.md"
   ]
