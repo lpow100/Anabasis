@@ -115,6 +115,27 @@ Items: {
 		DisplayName: Poisoned Stick
 		Tooltip: ""
 	}
+
+	WellWornHeadgear: {
+		SetBonus: Mods.Anabasis.Items.WellWornHeadgear.SetBonus
+		DisplayName: Well Worn Headgear
+		Tooltip: ""
+	}
+
+	RaggedWornLeggings: {
+		DisplayName: Ragged Worn Leggings
+		Tooltip: ""
+	}
+
+	MushroomWear: {
+		DisplayName: Mushroom Wear
+		Tooltip: ""
+	}
+
+	DeerPelt: {
+		DisplayName: Deer Pelt
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

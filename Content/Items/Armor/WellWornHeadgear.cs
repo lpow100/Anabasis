@@ -7,7 +7,7 @@ using Anabasis.Common.DamageClasses;
 namespace Anabasis.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class WellWornHeadGear : ModItem
+    public class WellWornHeadgear : ModItem
     {
         public static readonly int AdditiveGenericDamageBonus = 10;
 
@@ -32,7 +32,7 @@ namespace Anabasis.Content.Items.Armor
         // IsArmorSet determines what armor pieces are needed for the setbonus to take effect
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<RaggedStorageCloth>() //&& legs.type == ModContent.ItemType<ExampleLeggings>();
+            return body.type == ModContent.ItemType<RaggedStorageCloth>() && legs.type == ModContent.ItemType<RaggedWornLeggings>();
 
         }
 
@@ -40,15 +40,29 @@ namespace Anabasis.Content.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = SetBonusText.Value; // This is the setbonus tooltip: "Increases dealt damage by 20%"
-            player.GetDamage < AlchemistDamageClass > += AdditiveGenericDamageBonus / 100f; // Increase dealt damage for all weapon classes by 20%
+            player.GetDamage<AlchemistDamageClass>() += AdditiveGenericDamageBonus / 100f; // Increase dealt damage for all weapon classes by 20%
+        }
+
+        public override void UpdateEquip(Player player)
+        {
+            player.GetDamage<AlchemistDamageClass>() += 0.10f;
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient<ExampleItem>()
-                .AddTile<Tiles.Furniture.ExampleWorkbench>()
+                .AddIngredient(ItemID.Silk, 18)
+                .AddIngredient(ItemID.Leather, 2)
+                .AddIngredient(ItemID.IronBar, 2)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+
+            CreateRecipe()
+                .AddIngredient(ItemID.Silk, 18)
+                .AddIngredient(ItemID.Leather, 1)
+                .AddIngredient(ItemID.LeadBar, 2)
+                .AddTile(TileID.WorkBenches)
                 .Register();
         }
     }
