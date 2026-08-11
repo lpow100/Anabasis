@@ -12,7 +12,7 @@ namespace Anabasis.Content.Bosses.GiantEel
     {
         // AI slot usage
         private ref float AITimer => ref NPC.ai[0];
-        private ref float AttackState => ref NPC.ai[1]; // 0 = swim/chase, 1 = charging lunge, 2 = lunging
+        private ref float AttackState => ref NPC.ai[1]; // 0 = swim/chase, 1 = charging lunge, 2 = lunging, 3 = instakill
 
         private const int NumBodySegments = 12;
         private int[] bodySegmentIndices;
@@ -84,18 +84,23 @@ namespace Anabasis.Content.Bosses.GiantEel
                 target = Main.player[NPC.target];
             }
 
-            bool inWater = NPC.wet;
+            bool inWater = target.wet;
 
-            // --- Buoyancy / movement medium check ---
-            // If it strands on land, force it back toward the nearest water instead of flopping forever.
             if (!inWater)
             {
-                SwimTowardWater();
-                return;
+                AttackState = 3;
             }
 
             Vector2 toTarget = target.Center - NPC.Center;
             float distance = toTarget.Length();
+
+            if ((int)AttackState == 4)
+            {
+                NPC.damage = 99999;
+            } else
+            {
+                NPC.damage = 40;
+            }
 
             switch ((int)AttackState)
             {
@@ -128,6 +133,29 @@ namespace Anabasis.Content.Bosses.GiantEel
                     break;
 
                 case 2: // lunging
+                    AITimer++;
+                    if (AITimer > 20)
+                    {
+                        AttackState = 0;
+                        AITimer = 0;
+                        NPC.netUpdate = true;
+                    }
+                    break;
+                case 3: // charging - short windup, stay mostly still, face target
+                    AITimer++;
+                    NPC.velocity *= 0.9f;
+
+                    if (AITimer > 5)
+                    {
+                        AttackState = 4;
+                        AITimer = 0;
+                        NPC.velocity = toTarget * 1.5f; // lunge speed
+                        SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
+                        NPC.netUpdate = true;
+                    }
+                    break;
+
+                case 4: // lunging
                     AITimer++;
                     if (AITimer > 20)
                     {
