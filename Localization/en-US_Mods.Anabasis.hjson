@@ -171,3 +171,9 @@ Buffs: {
 		Description: Mods.Anabasis.Buffs.ShockedDebuff.Description
 	}
 }
+
+NPCs: {
+	GiantEelBody.DisplayName: Giant Eel Body
+	GiantEelHead.DisplayName: Giant Eel Head
+	GiantEelTail.DisplayName: Giant Eel Tail
+}
