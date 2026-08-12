@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -149,7 +149,7 @@ namespace Anabasis.Content.Bosses.GiantEel
                     {
                         AttackState = 4;
                         AITimer = 0;
-                        NPC.velocity = toTarget * 1.5f; // lunge speed
+                        NPC.velocity = toTarget * 0.75f; // lunge speed
                         SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         NPC.netUpdate = true;
                     }

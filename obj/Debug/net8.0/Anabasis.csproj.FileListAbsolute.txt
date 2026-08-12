@@ -1,0 +1,13 @@
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\bin\Debug\net8.0\Anabasis.deps.json
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\bin\Debug\net8.0\Anabasis.dll
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\bin\Debug\net8.0\Anabasis.pdb
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.csproj.AssemblyReference.cache
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.AssemblyInfoInputs.cache
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.AssemblyInfo.cs
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.csproj.CoreCompileInputs.cache
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.sourcelink.json
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.dll
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\refint\Anabasis.dll
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.pdb
+C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\ref\Anabasis.dll

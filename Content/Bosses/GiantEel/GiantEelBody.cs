@@ -65,8 +65,5 @@ namespace Anabasis.Content.Bosses.GiantEel
         }
 
         public override bool CheckActive() => false;
-
-        public override bool? CanBeHitByItem(Player player, Item item) => NPC.dontTakeDamage ? false : null;
-        public override bool? CanBeHitByProjectile(Projectile projectile) => NPC.dontTakeDamage ? false : null;
     }
 }

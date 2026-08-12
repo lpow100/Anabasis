@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "z+tp6xCXMkQ=",
+  "dgSpecHash": "15I9x3xr7GE=",
   "success": true,
-  "projectFilePath": "/home/trinary/.local/share/Terraria/tModLoader/ModSources/Anabasis/Anabasis.csproj",
+  "projectFilePath": "C:\\Users\\Logan\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Anabasis\\Anabasis.csproj",
   "expectedPackageFiles": [
-    "/home/trinary/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.29/microsoft.aspnetcore.app.ref.8.0.29.nupkg.sha512"
+    "C:\\Users\\Logan\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.30\\microsoft.windowsdesktop.app.ref.8.0.30.nupkg.sha512",
+    "C:\\Users\\Logan\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.30\\microsoft.netcore.app.ref.8.0.30.nupkg.sha512",
+    "C:\\Users\\Logan\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.30\\microsoft.aspnetcore.app.ref.8.0.30.nupkg.sha512"
   ],
   "logs": []
 }
