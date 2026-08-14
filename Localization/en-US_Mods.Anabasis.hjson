@@ -136,6 +136,11 @@ Items: {
 		DisplayName: Deer Pelt
 		Tooltip: ""
 	}
+
+	AlchemistEmblem: {
+		Tooltip: ""
+		DisplayName: Alchemist Emblem
+	}
 }
 
 Projectiles: {
