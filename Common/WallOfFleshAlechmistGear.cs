@@ -1,71 +1,98 @@
+using Anabasis.Content.Items.Equipment;
+using Anabasis.Content.Items.Weapons.Alchemist;
+using System;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
+using Terraria.UI;
 
-/*
 namespace Anabasis.Common
 {
-    public class WallOfFleshAlchemistGear : ModNPC
+    public class WoFDropsAlchemyLoot : GlobalNPC
     {
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             if (npc.type == NPCID.WallofFlesh)
             {
-                // Emblem choice - guaranteed, pick one
-                npcLoot.Add(ItemDropRule.OneFromOptions(1,
-                    ModContent.ItemType<YourEmblemMelee>(),
-                    ModContent.ItemType<YourEmblemRanged>(),
-                    ModContent.ItemType<YourEmblemMagic>(),
-                    ModContent.ItemType<YourEmblemSummon>()
-                ));
+                // Adapted from Calamity mod's code, https://github.com/CalamityTeam/CalamityModPublic/blob/1.4.4/NPCs/CalamityGlobalNPCLoot.cs
+                var wofRootRules = npcLoot.Get(false);
 
-                // Class weapon choice - guaranteed, pick one
-                npcLoot.Add(ItemDropRule.OneFromOptions(1,
-                    ModContent.ItemType<YourWeaponMelee>(),
-                    ModContent.ItemType<YourWeaponRanged>(),
-                    ModContent.ItemType<YourWeaponMagic>(),
-                    ModContent.ItemType<YourWeaponSummon>()
-                ));
+                
+                try
+                {
+                    IItemDropRule notExpert = wofRootRules.Find(
+                        (rule) => rule is LeadingConditionRule wofLeadingConditionRule &&
+                        wofLeadingConditionRule.condition is Conditions.NotExpert
+                    );
+                    if (notExpert is LeadingConditionRule wofLeadingConditionRule_NotExpert)
+                    {
+                        wofLeadingConditionRule_NotExpert.ChainedRules.RemoveAll((chainAttempt) =>
+                            chainAttempt is Chains.TryIfSucceeded c &&
+                            c.RuleToChain is OneFromOptionsNotScaledWithLuckDropRule emblems &&
+                            emblems.dropIds[0] == ItemID.WarriorEmblem);
+
+                        wofLeadingConditionRule_NotExpert.OnSuccess(ItemDropRule.OneFromOptions(1,
+                            ItemID.WarriorEmblem, ItemID.RangerEmblem, ItemID.SorcererEmblem, ItemID.SummonerEmblem,
+                            ModContent.ItemType<AlchemistEmblem>()
+                        ));
+                    }
+                }
+                catch (ArgumentNullException) { }
+
+                try
+                {
+                    IItemDropRule notExpert = wofRootRules.FindLast(
+                        (rule) => rule is LeadingConditionRule wofLeadingConditionRule &&
+                        wofLeadingConditionRule.condition is Conditions.NotExpert
+                    );
+                    if (notExpert is LeadingConditionRule wofLeadingConditionRule_NotExpert)
+                    {
+                        wofLeadingConditionRule_NotExpert.ChainedRules.RemoveAll((chainAttempt) =>
+                            chainAttempt is Chains.TryIfSucceeded c &&
+                            c.RuleToChain is OneFromOptionsNotScaledWithLuckDropRule weapons &&
+                            weapons.dropIds[0] == ItemID.BreakerBlade);
+
+                        wofLeadingConditionRule_NotExpert.OnSuccess(ItemDropRule.OneFromOptions(1,
+                            ItemID.BreakerBlade, ItemID.ClockworkAssaultRifle, ItemID.LaserRifle, ItemID.FireWhip,
+                            ModContent.ItemType<BottleCannon>()
+                        ));
+                    }
+                }
+                catch (ArgumentNullException) { }
             }
         }
     }
 
-    public class WoFBagExtraLoot : GlobalItem
-    {
-        public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
+        public class WoFBagExtraLoot : GlobalItem
         {
-            if (item.type == ItemID.WallofFleshTreasureBag)
+            public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
             {
-                // Remove vanilla's emblem choice rule
-                itemLoot.RemoveWhere(rule =>
-                    rule is ItemDropWithConditionRule == false &&
-                    DropsAnyOf(rule, ItemID.WarriorEmblem, ItemID.RangerEmblem, ItemID.SorcererEmblem, ItemID.SummonerEmblem)
-                );
+                if (item.type == ItemID.WallOfFleshBossBag)
+                {
+                    var itemLootRule = itemLoot.Get(false);
 
-                // Remove vanilla's class weapon choice rule
-                itemLoot.RemoveWhere(rule =>
-                    DropsAnyOf(rule, ItemID.BreakerBlade, ItemID.ClockworkAssaultRifle, ItemID.LaserRifle, ItemID.Firecracker)
-                );
+                    itemLootRule.RemoveAll((chainAttempt) =>
+                            chainAttempt is Chains.TryIfSucceeded c &&
+                            c.RuleToChain is OneFromOptionsNotScaledWithLuckDropRule emblems &&
+                            emblems.dropIds[0] == ItemID.WarriorEmblem);
 
-                // Re-add emblem choice with your item included (now 5 options, 20% each)
-                itemLoot.Add(ItemDropRule.OneFromOptions(1,
-                    ItemID.WarriorEmblem, ItemID.RangerEmblem, ItemID.SorcererEmblem, ItemID.SummonerEmblem,
-                    ModContent.ItemType<YourEmblem>()
-                ));
+                    itemLootRule.RemoveAll((chainAttempt) =>
+                            chainAttempt is Chains.TryIfSucceeded c &&
+                            c.RuleToChain is OneFromOptionsNotScaledWithLuckDropRule emblems &&
+                            emblems.dropIds[0] == ItemID.BreakerBlade);
 
-                // Re-add weapon choice with your item included (now 5 options, 20% each)
-                itemLoot.Add(ItemDropRule.OneFromOptions(1,
-                    ItemID.BreakerBlade, ItemID.ClockworkAssaultRifle, ItemID.LaserRifle, ItemID.Firecracker,
-                    ModContent.ItemType<YourWeapon>()
-                ));
+                    itemLoot.Add(ItemDropRule.OneFromOptions(1,
+                        ItemID.WarriorEmblem, ItemID.RangerEmblem, ItemID.SorcererEmblem, ItemID.SummonerEmblem,
+                        ModContent.ItemType<AlchemistEmblem>()
+                    ));
+
+                    itemLoot.Add(ItemDropRule.OneFromOptions(1,
+                        ItemID.BreakerBlade, ItemID.ClockworkAssaultRifle, ItemID.LaserRifle, ItemID.FireWhip,
+                        ModContent.ItemType<BottleCannon>()
+                    ));
+                }
             }
         }
-
-        private bool DropsAnyOf(IItemDropRule rule, params int[] itemTypes)
-        {
-            if (rule is OneFromOptionsDropRule options)
-                return options.dropIds.Any(id => itemTypes.Contains(id));
-            return false;
-        }
     }
-}*/

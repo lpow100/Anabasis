@@ -21,7 +21,7 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.autoReuse = true;
             Item.consumable = true;
 
-            Item.damage = 198;
+            Item.damage = 35;
             Item.knockBack = 3f;
             Item.noUseGraphic = true;
             Item.noMelee = true;
