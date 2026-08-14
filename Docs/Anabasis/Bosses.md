@@ -1,6 +1,6 @@
-## Pre-HM
-### Giant Harpy
-A giant harpy with clouds surronding her, attacks test your vertical mobility
+## HM
+### Cloud Elemental
+A cloud being summoned in the sky and enrages;
 Drops 20-30 [[Materials#Fulgurite|Fulgurite]] upon death
 ## Post-ML
 ### Phobos and Deimos
