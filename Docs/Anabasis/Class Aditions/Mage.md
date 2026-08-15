@@ -1,7 +1,7 @@
 # Accessories
 ## Pre-HM
 ### Wizard's Scroll
-+2 magic damage
++1 magic damage
 crafted with 10 silk and 5 platinum bars
 ### Mana Droplet
 More mana regen

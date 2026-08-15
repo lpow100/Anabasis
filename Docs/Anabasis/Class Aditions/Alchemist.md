@@ -71,7 +71,8 @@ deals 17 damage and realease 1-4 bees
 ### Elecronic Zapper
 Medium-high damage comsunable weapon
 incflicts shocked debuff (short stun) for 0.4 seconds and deals 22 damage
-Crafted with 10 wires, 2 iron/lead and 4 chains
+"Not rated for commercial user"
+7 are crafted with 8 wires, 1 iron/lead and 2 chains at an anvil
 ### Bone Spikes
 Medium-high damage consumable weapon
 inflicks poked debuff for 2 seconds and deals 19 damage
@@ -88,7 +89,15 @@ deals 58 damage with fast attack speed
 10 are crafted with 50 lizhard bricks and 1 wooden spike at an anvil
 # Accessories
 ## Pre-HM
-
+### Coconut Brew Juice
++1 Alchemist Damage
+""It's the quenchiest""
+Crafted with 1 Coconut and 1 Bottle at a workbench
+### Bone Soup
++10 Alchemist Damage
++2.5% Alchemy Weapon Save Chance
+"Filled With Calcium"
+Crafted with 100 Bones, 10 cobwebs and 2 Iron/Lead and a Cooking Pot
 ## HM
 ### Alchemist Emblem
 +10% alchemy damage
