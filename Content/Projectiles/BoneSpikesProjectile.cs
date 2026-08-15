@@ -47,12 +47,14 @@ namespace Anabasis.Content.Projectiles
     {
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.CrystalShard);
-            AIType = ProjectileID.CrystalShard;
+            Projectile.CloneDefaults(ProjectileID.Bullet);
+            AIType = ProjectileID.Bullet;
             Projectile.DamageType = ModContent.GetInstance<AlchemistDamageClass>();
 
             Projectile.width = 6;
             Projectile.height = 6;
+            Projectile.light = 0f;
+            Projectile.timeLeft = 45;
         }
     }
 }
