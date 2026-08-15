@@ -23,7 +23,7 @@ namespace Anabasis.Content.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.GetModPlayer<AlchemistPlayer>().consumableSaveChance += 0.10f;
+            player.GetModPlayer<AlchemistPlayer>().consumableSaveChance += 0.075f;
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.

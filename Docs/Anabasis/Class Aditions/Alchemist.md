@@ -127,7 +127,7 @@ Set bonus:
 +4% Alchemist Crit Chance
 #### Chestplate - Mushroom Wear:
 +5 Alchemist damage
-#### Leggings - Ragged Worn Leggings:
+#### Leggings - Mushroom Bottoms:
 +10% Alchemist weapon save chance
 
 

@@ -141,6 +141,25 @@ Items: {
 		Tooltip: 15% increased alchemy damage
 		DisplayName: Alchemist Emblem
 	}
+
+	GlowingCap: {
+		SetBonus:
+			'''
+			Alchemy damage increased by 3
+			2% increased alchemy crit chance
+			'''
+		DisplayName: Glowing Cap
+		Tooltip:
+			'''
+			Alchemy damage increased by 1
+			4% increased alchemy crit chance
+			'''
+	}
+
+	MushroomBottoms: {
+		DisplayName: Mushroom Bottoms
+		Tooltip: 10% increased alchemy weapon save chance
+	}
 }
 
 Projectiles: {

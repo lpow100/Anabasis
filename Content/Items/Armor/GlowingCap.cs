@@ -7,14 +7,14 @@ using Anabasis.Common.DamageClasses;
 namespace Anabasis.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class WellWornHeadgear : ModItem
+    public class GlowingCap : ModItem
     {
 
         public static LocalizedText SetBonusText { get; private set; }
 
         public override void SetStaticDefaults()
         {
-            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
 
             SetBonusText = this.GetLocalization("SetBonus");
         }
@@ -31,7 +31,7 @@ namespace Anabasis.Content.Items.Armor
         // IsArmorSet determines what armor pieces are needed for the setbonus to take effect
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<RaggedStorageCloth>() && legs.type == ModContent.ItemType<RaggedWornLeggings>();
+            return body.type == ModContent.ItemType<MushroomWear>() && legs.type == ModContent.ItemType<MushroomBottoms>();
 
         }
 
@@ -39,28 +39,28 @@ namespace Anabasis.Content.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = SetBonusText.Value;
-            player.GetDamage<AlchemistDamageClass>().Flat += 2; 
+            player.GetDamage<AlchemistDamageClass>().Flat += 3f;
+            player.GetCritChance<AlchemistDamageClass>() += 0.02f;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.GetCritChance<AlchemistDamageClass>() += 0.4f;
+            player.GetDamage<AlchemistDamageClass>().Flat += 1f;
+            player.GetCritChance<AlchemistDamageClass>() += 0.04f;
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
         public override void AddRecipes()
         {
-            CreateRecipe()
-                .AddIngredient(ItemID.Silk, 18)
-                .AddIngredient(ItemID.Leather, 2)
-                .AddIngredient(ItemID.IronBar, 2)
-                .AddTile(TileID.WorkBenches)
-                .Register();
 
             CreateRecipe()
-                .AddIngredient(ItemID.Silk, 18)
-                .AddIngredient(ItemID.Leather, 1)
-                .AddIngredient(ItemID.LeadBar, 2)
+                .AddIngredient(ItemID.GlowingMushroom, 20)
+                .AddIngredient(ItemID.TissueSample, 4)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.GlowingMushroom, 20)
+                .AddIngredient(ItemID.ShadowScale, 4)
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }
