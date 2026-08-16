@@ -31,9 +31,13 @@ namespace Anabasis.Content.Items.Armor
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.Silk, 20)
-                .AddIngredient(ItemID.Leather, 2)
-                .AddIngredient(ItemID.Bottle, 2)
+                .AddIngredient(ItemID.GlowingMushroom, 30)
+                .AddIngredient(ItemID.TissueSample, 6)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.GlowingMushroom, 30)
+                .AddIngredient(ItemID.ShadowScale, 6)
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }

@@ -63,12 +63,12 @@ Items: {
 
 	FulguriteHamaxe: {
 		DisplayName: Fulgurite Hamaxe
-		Tooltip: ""
+		Tooltip: A shocking Hamaxe
 	}
 
 	FulguritePickaxe: {
 		DisplayName: Fulgurite Pickaxe
-		Tooltip: ""
+		Tooltip: A shocking Pickaxe
 	}
 
 	CoralAmalgamation: {

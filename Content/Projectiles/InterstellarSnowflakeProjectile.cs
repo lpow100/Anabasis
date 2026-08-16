@@ -17,6 +17,7 @@ namespace Anabasis.Content.Projectiles
 
 			Projectile.width = 28;
 			Projectile.height = 28;
+			Projectile.penetrate = 1;
 		}
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
