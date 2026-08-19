@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Class Aditions/Ranger.md",
+                "file": "To Do.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ranger"
+              "title": "To Do"
             }
           },
           {
@@ -181,7 +181,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Class Aditions/Ranger.md",
+                "file": "To Do.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -271,14 +271,14 @@
   },
   "active": "4e990a0427e49535",
   "lastOpenFiles": [
-    "Materials.md",
-    "Class Aditions/Ranger.md",
+    "Class Aditions/Alchemist.md",
     "Class Aditions/Summoner.md",
     "Class Aditions/Melee.md",
-    "Class Aditions/Alchemist.md",
     "Class Aditions/Mage.md",
-    "Bosses.md",
+    "Class Aditions/Ranger.md",
     "To Do.md",
+    "Materials.md",
+    "Bosses.md",
     "Class Setups.md",
     "Class Aditions",
     "Untitled.canvas",
