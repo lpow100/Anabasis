@@ -23,157 +23,176 @@ Items: {
 
 	RaggedStorageCloth: {
 		DisplayName: Ragged Storage Cloth
-		Tooltip: ""
+		Tooltip: 7.5% increased alchemist weapon save chance
 	}
 
 	FlamingCrimsrod: {
 		DisplayName: Flaming Crimsrod
-		Tooltip: ""
+		Tooltip: The Crimson's flaming rod
 	}
 
 	FlamingCorruptor: {
 		DisplayName: Flaming Corruptor
-		Tooltip: ""
+		Tooltip: The Corruption's flaming rod
 	}
 
 	StingerPole: {
 		DisplayName: Stinger Pole
-		Tooltip: ""
+		Tooltip: A collection of poisonous stingers fashioned on a pole
 	}
 
 	BloodSyringe: {
 		DisplayName: Blood Syringe
-		Tooltip: ""
+		Tooltip: Used to poke enemies to death
 	}
 
 	PainfulPocketSand: {
 		DisplayName: Painful Pocket Sand
-		Tooltip: ""
+		Tooltip: Pocket Sand, now with spikes!
 	}
 
 	InterstellarSnowflake: {
 		DisplayName: Interstellar Snowflake
-		Tooltip: ""
+		Tooltip: A snowflake ready to be used for combat
 	}
 
 	Fulgurite: {
 		DisplayName: Fulgurite
-		Tooltip: ""
+		Tooltip: A shocked element from the sky
 	}
 
 	FulguriteHamaxe: {
 		DisplayName: Fulgurite Hamaxe
-		Tooltip: ""
+		Tooltip: A shocking Hamaxe
 	}
 
 	FulguritePickaxe: {
 		DisplayName: Fulgurite Pickaxe
-		Tooltip: ""
+		Tooltip: A shocking Pickaxe
 	}
 
 	CoralAmalgamation: {
 		DisplayName: Coral Amalgamation
-		Tooltip: ""
+		Tooltip: A mixture of all the colors of coral
 	}
 
 	SporeMixture: {
 		DisplayName: Spore Mixture
-		Tooltip: ""
+		Tooltip: A collection of different glowing spores
 	}
 
 	ShockBolt: {
 		DisplayName: Shock Bolt
-		Tooltip: ""
+		Tooltip: Can shock an enemy in place
 	}
 
 	CloudAlchemyBag: {
-		DisplayName: Cloud Alchemy Bag
-		Tooltip: ""
+		DisplayName: Sky High Alchemy bag
+		Tooltip: 17% increased chance to not consume alchemy weapons
 	}
 
 	BottleCannon: {
 		DisplayName: Bottle Cannon
-		Tooltip: ""
+		Tooltip: A cannon to slowly launch bottles
 	}
 
 	BoneSpikes: {
 		DisplayName: Bone Spikes
-		Tooltip: ""
+		Tooltip: Shattering spikes of bone
 	}
 
 	BlazingBottle: {
 		DisplayName: Blazing Bottle
-		Tooltip: ""
+		Tooltip: A throwable flask of fire
 	}
 
 	HoneyVial: {
 		DisplayName: Honey Vial
-		Tooltip: ""
+		Tooltip: A bee's medicine
 	}
 
 	PoisonedStick: {
 		DisplayName: Poisoned Stick
-		Tooltip: ""
+		Tooltip: A stick riddled with disease
 	}
 
 	WellWornHeadgear: {
-		SetBonus: Mods.Anabasis.Items.WellWornHeadgear.SetBonus
+		SetBonus: Alchemy damage increased by 2
 		DisplayName: Well Worn Headgear
-		Tooltip: ""
+		Tooltip: 4% increased alchemy crit chance
 	}
 
 	RaggedWornLeggings: {
 		DisplayName: Ragged Worn Leggings
-		Tooltip: ""
+		Tooltip: Alchemy damage increased by 1
 	}
 
 	MushroomWear: {
 		DisplayName: Mushroom Wear
-		Tooltip: ""
+		Tooltip: Alchemy damage increased by 5
 	}
 
 	DeerPelt: {
 		DisplayName: Deer Pelt
-		Tooltip: ""
+		Tooltip: A piece torn off Deerclops hislef
 	}
 
 	AlchemistEmblem: {
-		Tooltip: ""
+		Tooltip: 15% increased alchemy damage
 		DisplayName: Alchemist Emblem
+	}
+
+	GlowingCap: {
+		SetBonus:
+			'''
+			Alchemy damage increased by 3
+			2% increased alchemy crit chance
+			'''
+		DisplayName: Glowing Cap
+		Tooltip:
+			'''
+			Alchemy damage increased by 1
+			4% increased alchemy crit chance
+			'''
+	}
+
+	MushroomBottoms: {
+		DisplayName: Mushroom Bottoms
+		Tooltip: 10% increased alchemy weapon save chance
 	}
 }
 
 Projectiles: {
 	PoisonedGlob.DisplayName: Poisoned Glob
 	GlassShards.DisplayName: Glass Shards
-	ExplosiveVialProjectile.DisplayName: Explosive Vial Projectile
-	FlamingCrimsrodProjectile.DisplayName: Flaming Crimsrod Projectile
-	FlamingCorruptorProjectile.DisplayName: Flaming Corruptor Projectile
-	StingerPoleProjectile.DisplayName: Stinger Pole Projectile
-	BloodSyringeProjectile.DisplayName: Blood Syringe Projectile
-	PainfulPocketSandProjectile.DisplayName: Painful Pocket Sand Projectile
-	InterstellarSnowflakeProjectile.DisplayName: Interstellar Snowflake Projectile
-	CoralAmalgamationProjectile.DisplayName: Coral Amalgamation Projectile
-	SporeCloud1.DisplayName: Spore Cloud1
-	SporeCloud2.DisplayName: Spore Cloud2
-	SporeCloud3.DisplayName: Spore Cloud3
-	SporeMixtureProjectile.DisplayName: Spore Mixture Projectile
-	ShockBoltProjectile.DisplayName: Shock Bolt Projectile
+	ExplosiveVialProjectile.DisplayName: Explosive Vial
+	FlamingCrimsrodProjectile.DisplayName: Flaming Crimsrod
+	FlamingCorruptorProjectile.DisplayName: Flaming Corruptor
+	StingerPoleProjectile.DisplayName: Stinger Pole
+	BloodSyringeProjectile.DisplayName: Blood Syringe
+	PainfulPocketSandProjectile.DisplayName: Painful Pocket Sand
+	InterstellarSnowflakeProjectile.DisplayName: Interstellar Snowflake
+	CoralAmalgamationProjectile.DisplayName: Coral Amalgamation
+	SporeCloud1.DisplayName: Spore Cloud
+	SporeCloud2.DisplayName: Spore Cloud
+	SporeCloud3.DisplayName: Spore Cloud
+	SporeMixtureProjectile.DisplayName: Spore Mixture
+	ShockBoltProjectile.DisplayName: Shock Bolt
 	BoneShard.DisplayName: Bone Shard
-	BoneSpikesProjectile.DisplayName: Bone Spikes Projectile
-	BlazingBottleProjectile.DisplayName: Blazing Bottle Projectile
-	HoneyVialProjectile.DisplayName: Honey Vial Projectile
+	BoneSpikesProjectile.DisplayName: Bone Spikes
+	BlazingBottleProjectile.DisplayName: Blazing Bottle
+	HoneyVialProjectile.DisplayName: Honey Vial
 }
 
 Buffs: {
 	PokedDebuff: {
 		DisplayName: Poked Debuff
-		Description: Mods.Anabasis.Buffs.PokedDebuff.Description
+		Description: You've been poked and are taking some damage
 	}
 
 	ShockedDebuff: {
 		DisplayName: Shocked Debuff
-		Description: Mods.Anabasis.Buffs.ShockedDebuff.Description
+		Description: You're frozen from the shock
 	}
 }
 
@@ -182,3 +201,5 @@ NPCs: {
 	GiantEelHead.DisplayName: Giant Eel Head
 	GiantEelTail.DisplayName: Giant Eel Tail
 }
+
+DamageClasses.AlchemistDamageClass.DisplayName: Alchemy Damage

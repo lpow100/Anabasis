@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Anabasis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3c53f5732692715d2f0e4ae6c17b4c73b8f488d")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94aaf99568b1f80a97785988004a362e2c49ada0")]
+>>>>>>> 058c233f56ecc86d334621da8f9b3fef3ad37ce8
 [assembly: System.Reflection.AssemblyProductAttribute("Anabasis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Anabasis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

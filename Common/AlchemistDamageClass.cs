@@ -15,6 +15,9 @@ namespace Anabasis.Common.DamageClasses
 
         public override bool GetEffectInheritance(DamageClass damageClass) => damageClass == Generic;
 
-        public override LocalizedText DisplayName => Language.GetOrRegister("Mods.YourModName.DamageClasses.Throwing.DisplayName", () => "Alchemy Damage");
+        public override LocalizedText DisplayName => Language.GetOrRegister(
+            this.GetLocalizationKey("DisplayName"),
+            () => "Alchemy Damage"
+        );
     }
 }

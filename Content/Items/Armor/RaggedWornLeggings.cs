@@ -23,7 +23,7 @@ namespace Anabasis.Content.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage<AlchemistDamageClass>() += 0.10f;
+            player.GetDamage<AlchemistDamageClass>().Flat += 1;
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.

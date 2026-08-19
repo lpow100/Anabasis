@@ -24,16 +24,20 @@ namespace Anabasis.Content.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage<AlchemistDamageClass>() += 0.15f;
+            player.GetDamage<AlchemistDamageClass>().Flat += 5f;
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.Silk, 20)
-                .AddIngredient(ItemID.Leather, 2)
-                .AddIngredient(ItemID.Bottle, 2)
+                .AddIngredient(ItemID.GlowingMushroom, 30)
+                .AddIngredient(ItemID.TissueSample, 6)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.GlowingMushroom, 30)
+                .AddIngredient(ItemID.ShadowScale, 6)
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }
