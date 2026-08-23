@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Class Aditions/Alchemist.md",
+                "file": "Class Aditions/Melee.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Alchemist"
+              "title": "Melee"
             }
           },
           {
@@ -181,7 +181,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Class Aditions/Alchemist.md",
+                "file": "Class Aditions/Melee.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -271,11 +271,11 @@
   },
   "active": "4e990a0427e49535",
   "lastOpenFiles": [
-    "To Do.md",
+    "Class Aditions/Mage.md",
     "Class Aditions/Alchemist.md",
+    "To Do.md",
     "Class Aditions/Summoner.md",
     "Class Aditions/Melee.md",
-    "Class Aditions/Mage.md",
     "Class Aditions/Ranger.md",
     "Materials.md",
     "Bosses.md",
