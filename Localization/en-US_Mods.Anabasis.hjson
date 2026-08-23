@@ -160,6 +160,21 @@ Items: {
 		DisplayName: Mushroom Bottoms
 		Tooltip: 10% increased alchemy weapon save chance
 	}
+
+	Neutronium: {
+		DisplayName: Neutronium
+		Tooltip: ""
+	}
+
+	PetConch: {
+		DisplayName: Pet Conch
+		Tooltip: ""
+	}
+
+	ShinedStone: {
+		DisplayName: Shined Stone
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
