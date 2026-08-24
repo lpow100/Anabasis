@@ -30,5 +30,15 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 14.5f;
             Item.shoot = ModContent.ProjectileType<StingerPoleProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(5)
+                .AddIngredient(ItemID.PlatinumBar)
+                .AddIngredient(ItemID.JungleSpores)
+                .AddIngredient(ItemID.Stinger)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
     }
 }

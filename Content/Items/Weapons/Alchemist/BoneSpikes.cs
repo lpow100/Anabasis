@@ -30,5 +30,14 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 13.5f;
             Item.shoot = ModContent.ProjectileType<BoneSpikesProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(5)
+                .AddIngredient(ItemID.Spike, 3)
+                .AddIngredient(ItemID.Bone, 2)
+                .AddTile(TileID.BoneWelder)
+                .Register();
+        }
     }
 }

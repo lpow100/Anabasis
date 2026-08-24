@@ -27,5 +27,14 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 7f;
             Item.shoot = ModContent.ProjectileType<PoisonedGlob>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient(ItemID.Wood, 20)
+                .AddTile(TileID.WorkBenches)
+                .AddCondition(Condition.InGraveyard)
+                .Register();
+        }
     }
 }

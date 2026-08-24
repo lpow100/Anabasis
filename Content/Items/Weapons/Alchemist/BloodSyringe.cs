@@ -30,5 +30,14 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 12.25f;
             Item.shoot = ModContent.ProjectileType<BloodSyringeProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(6)
+                .AddRecipeGroup(RecipeGroupID.IronBar, 10)
+                .AddIngredient(ItemID.LesserHealingPotion, 2)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
     }
 }

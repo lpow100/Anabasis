@@ -30,5 +30,20 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 12f;
             Item.shoot = ModContent.ProjectileType<SporeMixtureProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(5)
+                .AddIngredient(ItemID.GlowingMushroom, 3)
+                .AddIngredient(ItemID.TissueSample, 1)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+
+            CreateRecipe(5)
+                .AddIngredient(ItemID.GlowingMushroom, 3)
+                .AddIngredient(ItemID.ShadowScale, 1)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+        }
     }
 }

@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net8.0": {}
   },
@@ -8,28 +8,38 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/home/trinary/.nuget/packages/": {}
+    "C:\\Users\\Logan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/trinary/.local/share/Terraria/tModLoader/ModSources/Anabasis/Anabasis.csproj",
+      "projectUniqueName": "C:\\Users\\Logan\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Anabasis\\Anabasis.csproj",
       "projectName": "Anabasis",
-      "projectPath": "/home/trinary/.local/share/Terraria/tModLoader/ModSources/Anabasis/Anabasis.csproj",
-      "packagesPath": "/home/trinary/.nuget/packages/",
-      "outputPath": "/home/trinary/.local/share/Terraria/tModLoader/ModSources/Anabasis/obj/",
+      "projectPath": "C:\\Users\\Logan\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Anabasis\\Anabasis.csproj",
+      "packagesPath": "C:\\Users\\Logan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Logan\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Anabasis\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/home/trinary/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Logan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {}
         }
@@ -44,10 +54,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net8.0": {
+        "framework": "net8.0",
         "targetAlias": "net8.0",
         "imports": [
           "net461",
@@ -63,7 +74,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.29, 8.0.29]"
+            "version": "[8.0.30, 8.0.30]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.30, 8.0.30]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.30, 8.0.30]"
           }
         ],
         "frameworkReferences": {
@@ -71,7 +90,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.110/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

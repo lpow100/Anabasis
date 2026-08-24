@@ -30,5 +30,22 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 12.5f;
             Item.shoot = ModContent.ProjectileType<ExplosiveVialProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(10)
+                .AddIngredient(ItemID.IronOre, 2)
+                .AddIngredient(ItemID.Bomb, 1)
+                .AddIngredient(ItemID.Bottle, 5)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+
+            CreateRecipe(10)
+                .AddIngredient(ItemID.LeadOre, 2)
+                .AddIngredient(ItemID.Bomb, 1)
+                .AddIngredient(ItemID.Bottle, 5)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+        }
     }
 }

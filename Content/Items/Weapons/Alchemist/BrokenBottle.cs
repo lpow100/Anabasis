@@ -30,5 +30,13 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 12f;
             Item.shoot = ModContent.ProjectileType<GlassShards>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(3)
+                .AddIngredient(ItemID.Bottle, 2)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
     }
 }

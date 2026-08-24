@@ -30,5 +30,13 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 13f;
             Item.shoot = ModContent.ProjectileType<BlazingBottleProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(9)
+                .AddIngredient(ItemID.FlaskofFire)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+        }
     }
 }

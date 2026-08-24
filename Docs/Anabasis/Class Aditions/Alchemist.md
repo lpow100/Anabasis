@@ -1,4 +1,4 @@
-The alchemist is a class about brews of items, he turns materials into new ideas and uses these in battles
+The alchemist is a class about brews of items, he turns [[materials]] into new ideas and uses these in battles
 He is made to have a lot of medium range consumable items
 # Weapons
 ## Pre-Boss

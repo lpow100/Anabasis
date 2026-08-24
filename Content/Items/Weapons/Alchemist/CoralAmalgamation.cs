@@ -30,5 +30,22 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<CoralAmalgamationProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(12)
+                .AddIngredient(ItemID.CoralstoneBlock, 1)
+                .AddIngredient(ItemID.ShellPileBlock, 3)
+                .AddIngredient(ItemID.TissueSample, 2)
+                .AddTile(TileID.Anvils)
+                .Register();
+
+            CreateRecipe(12)
+                .AddIngredient(ItemID.CoralstoneBlock, 1)
+                .AddIngredient(ItemID.ShellPileBlock, 3)
+                .AddIngredient(ItemID.ShadowScale, 2)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
     }
 }

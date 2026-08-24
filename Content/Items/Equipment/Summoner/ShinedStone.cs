@@ -23,5 +23,14 @@ namespace Anabasis.Content.Items.Equipment.Summoner
         {
             player.GetDamage<SummonDamageClass>().Flat += 1;
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddRecipeGroup("Anabasis:AnyGem", 3)
+                .AddIngredient(ItemID.StoneBlock, 8)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
     }
 }
