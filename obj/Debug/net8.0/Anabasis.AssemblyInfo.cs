@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Anabasis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf12f064ad4ec76c95b4db0ed1cd097bbaaeee9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32c62ea75f1434da07f9d3645519f4a3e36addd6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Anabasis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Anabasis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
