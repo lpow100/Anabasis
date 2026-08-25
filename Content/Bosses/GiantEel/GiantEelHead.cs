@@ -11,7 +11,7 @@ namespace Anabasis.Content.Bosses.GiantEel
     public class GiantEelHead : ModNPC
     {
         private ref float AITimer => ref NPC.ai[0];
-        private ref float AttackState => ref NPC.ai[1]; 
+        private ref float AttackState => ref NPC.ai[1];
 
         private const int NumBodySegments = 12;
         private int[] bodySegmentIndices;
@@ -58,7 +58,7 @@ namespace Anabasis.Content.Bosses.GiantEel
             // 4. Master Mode (relic first, pet last, everything else in between)
 
             // Trophies are spawned with 1/10 chance
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Placeable.Furniture.MinionBossTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Placeable.Furniture.GiantEelTrophy>(), 10));
 
             // All the Classic Mode drops here are based on "not expert", meaning we use .OnSuccess() to add them into the rule, which then gets added
             LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
@@ -142,20 +142,20 @@ namespace Anabasis.Content.Bosses.GiantEel
 
             switch ((int)AttackState)
             {
-                case 0: 
+                case 0:
                     SwimChase(target);
 
                     AITimer++;
-                    if (AITimer > 240 && distance < 500f) 
+                    if (AITimer > 240 && distance < 500f)
                     {
                         AttackState = 1;
                         AITimer = 0;
-                        NPC.velocity *= 0.3f; 
+                        NPC.velocity *= 0.3f;
                         NPC.netUpdate = true;
                     }
                     break;
 
-                case 1: 
+                case 1:
                     AITimer++;
                     NPC.velocity *= 0.9f;
 
@@ -170,7 +170,7 @@ namespace Anabasis.Content.Bosses.GiantEel
                     }
                     break;
 
-                case 2: 
+                case 2:
                     AITimer++;
                     if (AITimer > 20)
                     {
@@ -180,7 +180,7 @@ namespace Anabasis.Content.Bosses.GiantEel
                     }
                     break;
 
-                case 3: 
+                case 3:
                     AITimer++;
                     NPC.velocity *= 0.9f;
 
