@@ -180,6 +180,11 @@ Items: {
 		DisplayName: Electronics Jar
 		Tooltip: ""
 	}
+
+	FancyCrown: {
+		DisplayName: Fancy Crown
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
