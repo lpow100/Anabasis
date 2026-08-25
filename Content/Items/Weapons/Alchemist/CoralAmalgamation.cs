@@ -31,7 +31,8 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shoot = ModContent.ProjectileType<CoralAmalgamationProjectile>();
         }
 
-        public override void AddRecipes()
+        // TODO: Make this with sea stonea
+       /* public override void AddRecipes()
         {
             CreateRecipe(12)
                 .AddIngredient(ItemID.CoralstoneBlock, 1)
@@ -46,6 +47,6 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
                 .AddIngredient(ItemID.ShadowScale, 2)
                 .AddTile(TileID.Anvils)
                 .Register();
-        }
+        }*/
     }
 }

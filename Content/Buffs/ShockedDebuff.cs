@@ -19,15 +19,14 @@ namespace Anabasis.Content.Buffs
         {
             if (!npc.boss)
             {
-                npc.velocity.X *= 0;
-                npc.velocity.Y *= 0;
+                npc.velocity.X *= 0.1f;
+                npc.velocity.Y *= 0.1f;
                 npc.frameCounter = 0;
             }
             else
             {
-                npc.velocity.X *= 0.65f;
-                npc.velocity.Y *= 0.65f;
-                npc.frameCounter *= 0.65;
+                npc.velocity.X *= 0.95f;
+                npc.velocity.Y *= 0.95f;
             }
         }
 

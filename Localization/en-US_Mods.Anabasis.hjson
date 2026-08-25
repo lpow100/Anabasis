@@ -175,6 +175,11 @@ Items: {
 		DisplayName: Shined Stone
 		Tooltip: ""
 	}
+
+	ElectronicsJar: {
+		DisplayName: Electronics Jar
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -197,6 +202,7 @@ Projectiles: {
 	BoneSpikesProjectile.DisplayName: Bone Spikes
 	BlazingBottleProjectile.DisplayName: Blazing Bottle
 	HoneyVialProjectile.DisplayName: Honey Vial
+	ElectronicsJarProjectile.DisplayName: Electronics Jar Projectile
 }
 
 Buffs: {

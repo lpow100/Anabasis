@@ -68,11 +68,11 @@ Medium damage consumable weapon
 deals 17 damage and realease 1-4 bees
 3 are crafted with 1 bee wax and 2 bottled honey
 ## Pre-WOF
-### Elecronic Zapper
+### Electronics Jar
 Medium-high damage comsunable weapon
 incflicts shocked debuff (short stun) for 0.4 seconds and deals 22 damage
 "Not rated for commercial user"
-7 are crafted with 8 wires, 1 iron/lead and 2 chains at an anvil
+14 are crafted with 8 wires, 1 iron/lead and 3 bottles at an anvil
 ### Bone Spikes
 Medium-high damage consumable weapon
 inflicks poked debuff for 2 seconds and deals 19 damage

@@ -39,6 +39,13 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
                 .AddIngredient(ItemID.Stinger)
                 .AddTile(TileID.Anvils)
                 .Register();
+
+            CreateRecipe(5)
+                .AddIngredient(ItemID.GoldBar)
+                .AddIngredient(ItemID.JungleSpores)
+                .AddIngredient(ItemID.Stinger)
+                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }
