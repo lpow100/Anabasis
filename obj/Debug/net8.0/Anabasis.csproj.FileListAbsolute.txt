@@ -1,6 +1,0 @@
-C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.csproj.AssemblyReference.cache
-C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.AssemblyInfoInputs.cache
-C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.AssemblyInfo.cs
-C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.csproj.CoreCompileInputs.cache
-C:\Users\Logan\Documents\My Games\Terraria\tModLoader\ModSources\Anabasis\obj\Debug\net8.0\Anabasis.sourcelink.json
