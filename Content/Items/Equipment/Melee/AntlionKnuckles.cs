@@ -1,18 +1,18 @@
-using Anabasis.Common.DamageClasses;
+﻿using Anabasis.Common.DamageClasses;
 using Anabasis.Common.Players;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Anabasis.Content.Items.Equipment.Summoner
+namespace Anabasis.Content.Items.Equipment.Melee
 {
-    public class ShinedStone : ModItem
+    public class AntlionKnuckles : ModItem
     {
 
         public override void SetDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
+            Item.width = 33;
+            Item.height = 24;
 
             Item.accessory = true;
             Item.rare = ItemRarityID.Blue;
@@ -21,14 +21,14 @@ namespace Anabasis.Content.Items.Equipment.Summoner
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage<SummonDamageClass>().Flat += 1;
+            player.GetDamage<MeleeDamageClass>().Flat += 1;
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddRecipeGroup("Anabasis:AnyGem", 3)
-                .AddIngredient(ItemID.StoneBlock, 8)
+                .AddIngredient(ItemID.AntlionMandible, 3)
+                .AddRecipeGroup(RecipeGroupID.IronBar, 3)
                 .AddTile(TileID.Anvils)
                 .Register();
         }

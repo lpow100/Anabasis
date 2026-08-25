@@ -21,7 +21,7 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.autoReuse = true;
             Item.consumable = true;
 
-            Item.damage = 35;
+            Item.damage = 7;
             Item.knockBack = 3f;
             Item.noUseGraphic = true;
             Item.noMelee = true;
@@ -29,6 +29,21 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
 
             Item.shootSpeed = 12f;
             Item.shoot = ModContent.ProjectileType<SporeMixtureProjectile>();
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(5)
+                .AddIngredient(ItemID.GlowingMushroom, 3)
+                .AddIngredient(ItemID.TissueSample, 1)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+
+            CreateRecipe(5)
+                .AddIngredient(ItemID.GlowingMushroom, 3)
+                .AddIngredient(ItemID.ShadowScale, 1)
+                .AddTile(TileID.WorkBenches)
+                .Register();
         }
     }
 }

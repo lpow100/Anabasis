@@ -15,8 +15,8 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.maxStack = Item.CommonMaxStack;
 
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.useAnimation = 21;
-            Item.useTime = 21;
+            Item.useAnimation = 25;
+            Item.useTime = 25;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.consumable = true;
@@ -29,6 +29,14 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
 
             Item.shootSpeed = 12f;
             Item.shoot = ModContent.ProjectileType<GlassShards>();
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(3)
+                .AddIngredient(ItemID.Bottle, 2)
+                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

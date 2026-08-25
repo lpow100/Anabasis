@@ -30,5 +30,14 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 13f;
             Item.shoot = ModContent.ProjectileType<HoneyVialProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(3)
+                .AddIngredient(ItemID.BeeWax)
+                .AddIngredient(ItemID.BottledHoney,2)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+        }
     }
 }

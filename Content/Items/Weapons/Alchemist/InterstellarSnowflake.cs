@@ -30,5 +30,15 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<InterstellarSnowflakeProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(5)
+                .AddIngredient(ItemID.MeteoriteBar)
+                .AddIngredient(ItemID.IceBlock, 2)
+                .AddIngredient(ItemID.SnowBlock)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
     }
 }

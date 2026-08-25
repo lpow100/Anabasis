@@ -1,17 +1,17 @@
-using Anabasis.Common.DamageClasses;
+﻿using Anabasis.Common.DamageClasses;
 using Anabasis.Common.Players;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Anabasis.Content.Items.Equipment.Summoner
+namespace Anabasis.Content.Items.Equipment.Ranger
 {
-    public class ShinedStone : ModItem
+    public class FlinxsFoot : ModItem
     {
 
         public override void SetDefaults()
         {
-            Item.width = 20;
+            Item.width = 34;
             Item.height = 20;
 
             Item.accessory = true;
@@ -21,14 +21,15 @@ namespace Anabasis.Content.Items.Equipment.Summoner
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage<SummonDamageClass>().Flat += 1;
+            player.GetDamage<RangedDamageClass>().Flat += 1;
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddRecipeGroup("Anabasis:AnyGem", 3)
-                .AddIngredient(ItemID.StoneBlock, 8)
+                .AddIngredient(ItemID.FlinxFur, 3)
+                .AddIngredient(ItemID.IceBlock, 6)
+                .AddIngredient(ItemID.Chain, 2)
                 .AddTile(TileID.Anvils)
                 .Register();
         }

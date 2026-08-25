@@ -24,5 +24,11 @@ namespace Anabasis.Content.Items.Equipment.Summoner
             player.GetDamage<SummonDamageClass>().Flat += 10;
             player.maxMinions += 1;
         }
+
+        public override void AddRecipes()
+        {
+            //CreateRecipe()
+            //    .AddIngredient
+        }
     }
 }

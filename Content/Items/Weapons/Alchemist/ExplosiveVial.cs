@@ -21,7 +21,7 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.autoReuse = true;
             Item.consumable = true;
 
-            Item.damage = 16;
+            Item.damage = 22;
             Item.knockBack = 5f;
             Item.noUseGraphic = true;
             Item.noMelee = true;
@@ -29,6 +29,23 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
 
             Item.shootSpeed = 12.5f;
             Item.shoot = ModContent.ProjectileType<ExplosiveVialProjectile>();
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(20)
+                .AddIngredient(ItemID.DemoniteOre)
+                .AddIngredient(ItemID.Bomb, 2)
+                .AddIngredient(ItemID.Bottle, 10)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+
+            CreateRecipe(20)
+                .AddIngredient(ItemID.DemoniteOre)
+                .AddIngredient(ItemID.Bomb, 2)
+                .AddIngredient(ItemID.Bottle, 10)
+                .AddTile(TileID.WorkBenches)
+                .Register();
         }
     }
 }

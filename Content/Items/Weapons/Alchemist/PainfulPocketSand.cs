@@ -30,5 +30,14 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<PainfulPocketSandProjectile>();
         }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe(4)
+                .AddIngredient(ItemID.AntlionMandible)
+                .AddIngredient(ItemID.SandBlock, 3)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
     }
 }
