@@ -34,14 +34,14 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
         public override void AddRecipes()
         {
             CreateRecipe(20)
-                .AddIngredient(ItemID.Demonite)
+                .AddIngredient(ItemID.DemoniteOre)
                 .AddIngredient(ItemID.Bomb, 2)
                 .AddIngredient(ItemID.Bottle, 10)
                 .AddTile(TileID.WorkBenches)
                 .Register();
 
             CreateRecipe(20)
-                .AddIngredient(ItemID.Crimtane)
+                .AddIngredient(ItemID.DemoniteOre)
                 .AddIngredient(ItemID.Bomb, 2)
                 .AddIngredient(ItemID.Bottle, 10)
                 .AddTile(TileID.WorkBenches)
