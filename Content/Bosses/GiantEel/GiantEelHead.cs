@@ -1,18 +1,17 @@
-    using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Anabasis.Content.Bosses.GiantEel
 {
-    // Head segment - controls AI, spawns/keeps track of body & tail
     public class GiantEelHead : ModNPC
     {
-        // AI slot usage
         private ref float AITimer => ref NPC.ai[0];
-        private ref float AttackState => ref NPC.ai[1]; // 0 = swim/chase, 1 = charging lunge, 2 = lunging, 3 = instakill
+        private ref float AttackState => ref NPC.ai[1]; 
 
         private const int NumBodySegments = 12;
         private int[] bodySegmentIndices;
@@ -23,9 +22,7 @@ namespace Anabasis.Content.Bosses.GiantEel
             NPCID.Sets.TrailCacheLength[Type] = 5;
             NPCID.Sets.TrailingMode[Type] = 0;
 
-            // Add this in for bosses that have a summon item, requires corresponding code in the item (See MinionBossSummonItem.cs)
             NPCID.Sets.MPAllowedEnemies[Type] = true;
-            // Automatically group with other bosses
             NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
@@ -49,6 +46,42 @@ namespace Anabasis.Content.Bosses.GiantEel
 
             NPC.BossBar = ModContent.GetInstance<GiantEelBossBar>();
         }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            // Do NOT misuse the ModifyNPCLoot and OnKill hooks: the former is only used for registering drops, the latter for everything else
+
+            // The order in which you add loot will appear as such in the Bestiary. To mirror vanilla boss order:
+            // 1. Trophy
+            // 2. Classic Mode ("not expert")
+            // 3. Expert Mode (usually just the treasure bag)
+            // 4. Master Mode (relic first, pet last, everything else in between)
+
+            // Trophies are spawned with 1/10 chance
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Placeable.Furniture.MinionBossTrophy>(), 10));
+
+            // All the Classic Mode drops here are based on "not expert", meaning we use .OnSuccess() to add them into the rule, which then gets added
+            LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+
+            // Notice we use notExpertRule.OnSuccess instead of npcLoot.Add so it only applies in normal mode
+            // Boss masks are spawned with 1/7 chance
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MinionBossMask>(), 7));
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SeaStone>(), 1, 30, 40));
+
+            // Finally add the leading rule
+            npcLoot.Add(notExpertRule);
+
+            // Add the treasure bag using ItemDropRule.BossBag (automatically checks for expert mode)
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MinionBossBag>()));
+
+            // ItemDropRule.MasterModeCommonDrop for the relic
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeable.Furniture.MinionBossRelic>()));
+
+            // ItemDropRule.MasterModeDropOnAllPlayers for the pet
+            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<MinionBossPetItem>(), 4));
+        }
+
 
         public override void OnSpawn(IEntitySource source)
         {
@@ -86,38 +119,43 @@ namespace Anabasis.Content.Bosses.GiantEel
 
             bool inWater = target.wet;
 
-            if (!inWater)
+            if (!inWater && AttackState < 3)
             {
                 AttackState = 3;
+                AITimer = 0;
+                NPC.netUpdate = true;
             }
 
             Vector2 toTarget = target.Center - NPC.Center;
             float distance = toTarget.Length();
 
-            if ((int)AttackState == 4)
+            if ((int)AttackState == 3 || (int)AttackState == 4)
             {
-                NPC.damage = 99999;
-            } else
+                NPC.damage = 9999;
+                NPC.defDamage = 9999;
+            }
+            else
             {
                 NPC.damage = 40;
+                NPC.defDamage = 40;
             }
 
             switch ((int)AttackState)
             {
-                case 0: // normal swim/chase
+                case 0: 
                     SwimChase(target);
 
                     AITimer++;
-                    if (AITimer > 240 && distance < 500f) // every ~4s, try a lunge if close enough
+                    if (AITimer > 240 && distance < 500f) 
                     {
                         AttackState = 1;
                         AITimer = 0;
-                        NPC.velocity *= 0.3f; // brief pause telegraphs the charge
+                        NPC.velocity *= 0.3f; 
                         NPC.netUpdate = true;
                     }
                     break;
 
-                case 1: // charging - short windup, stay mostly still, face target
+                case 1: 
                     AITimer++;
                     NPC.velocity *= 0.9f;
 
@@ -132,7 +170,7 @@ namespace Anabasis.Content.Bosses.GiantEel
                     }
                     break;
 
-                case 2: // lunging
+                case 2: 
                     AITimer++;
                     if (AITimer > 20)
                     {
@@ -141,7 +179,8 @@ namespace Anabasis.Content.Bosses.GiantEel
                         NPC.netUpdate = true;
                     }
                     break;
-                case 3: // charging - short windup, stay mostly still, face target
+
+                case 3: 
                     AITimer++;
                     NPC.velocity *= 0.9f;
 
@@ -149,13 +188,14 @@ namespace Anabasis.Content.Bosses.GiantEel
                     {
                         AttackState = 4;
                         AITimer = 0;
-                        NPC.velocity = toTarget * 0.75f; // lunge speed
+                        Vector2 dir = toTarget.SafeNormalize(Vector2.UnitX);
+                        NPC.velocity = dir * 22f;
                         SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         NPC.netUpdate = true;
                     }
                     break;
 
-                case 4: // lunging
+                case 4:
                     AITimer++;
                     if (AITimer > 20)
                     {
@@ -166,7 +206,7 @@ namespace Anabasis.Content.Bosses.GiantEel
                     break;
             }
 
-            // Rotation follows velocity so the head visually points the way it swims
+
             NPC.rotation = NPC.velocity.ToRotation() + MathHelper.PiOver2;
 
             DespawnIfPlayerFarOrDead(target);
@@ -178,8 +218,6 @@ namespace Anabasis.Content.Bosses.GiantEel
             float distance = toTarget.Length();
             Vector2 dir = toTarget.SafeNormalize(Vector2.UnitY);
 
-            // Base swim speed, with a gentle sine wobble perpendicular to travel direction
-            // for a more "swimming" feel than a straight worm-line chase.
             float baseSpeed = MathHelper.Lerp(4f, 8f, MathHelper.Clamp(distance / 800f, 0f, 1f));
             Vector2 perpendicular = new Vector2(-dir.Y, dir.X);
             float wobble = (float)System.Math.Sin(Main.GameUpdateCount * 0.05f) * 1.5f;
@@ -190,15 +228,13 @@ namespace Anabasis.Content.Bosses.GiantEel
 
         private void SwimTowardWater()
         {
-            // Simple fallback: just apply gravity-ish pull and let it slide back into
-            // the ocean's slope. For a real build you'd raycast toward nearest water tile.
             NPC.velocity.Y += 0.3f;
             if (NPC.velocity.Y > 8f) NPC.velocity.Y = 8f;
         }
 
         private void DespawnIfPlayerFarOrDead(Player target)
         {
-            if (!target.active || target.dead || Vector2.Distance(NPC.Center, target.Center) > 4000f)
+            if (!target.active || target.dead || Vector2.Distance(NPC.Center, target.Center) > 1000f)
             {
                 NPC.velocity.Y -= 0.2f;
                 NPC.EncourageDespawn(10);
@@ -217,7 +253,6 @@ namespace Anabasis.Content.Bosses.GiantEel
 
         public override void OnKill()
         {
-            // Kill all connected segments when the head dies
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC other = Main.npc[i];

@@ -185,6 +185,26 @@ Items: {
 		DisplayName: Fancy Crown
 		Tooltip: ""
 	}
+
+	CoconutBrewJuice: {
+		DisplayName: Coconut Brew Juice
+		Tooltip: ""
+	}
+
+	WizardsScroll: {
+		DisplayName: Wizards Scroll
+		Tooltip: ""
+	}
+
+	AntlionKnuckles: {
+		DisplayName: Antlion Knuckles
+		Tooltip: ""
+	}
+
+	FlinxsFoot: {
+		DisplayName: Flinxs Foot
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

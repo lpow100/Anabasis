@@ -9,6 +9,11 @@ namespace Anabasis.Content.Items.Vanity
     [AutoloadEquip(EquipType.Head)]
     public class FancyCrown : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
+            ArmorIDs.Head.Sets.IsTallHat[Item.headSlot] = true;
+        }
         public override void SetDefaults()
         {
             Item.width = 28;
