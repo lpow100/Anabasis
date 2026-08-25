@@ -21,7 +21,7 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
             Item.autoReuse = true;
             Item.consumable = true;
 
-            Item.damage = 16;
+            Item.damage = 22;
             Item.knockBack = 5f;
             Item.noUseGraphic = true;
             Item.noMelee = true;
@@ -33,17 +33,17 @@ namespace Anabasis.Content.Items.Weapons.Alchemist
 
         public override void AddRecipes()
         {
-            CreateRecipe(10)
-                .AddIngredient(ItemID.IronOre, 2)
-                .AddIngredient(ItemID.Bomb, 1)
-                .AddIngredient(ItemID.Bottle, 5)
+            CreateRecipe(20)
+                .AddIngredient(ItemID.Demonite)
+                .AddIngredient(ItemID.Bomb, 2)
+                .AddIngredient(ItemID.Bottle, 10)
                 .AddTile(TileID.WorkBenches)
                 .Register();
 
-            CreateRecipe(10)
-                .AddIngredient(ItemID.LeadOre, 2)
-                .AddIngredient(ItemID.Bomb, 1)
-                .AddIngredient(ItemID.Bottle, 5)
+            CreateRecipe(20)
+                .AddIngredient(ItemID.Crimtane)
+                .AddIngredient(ItemID.Bomb, 2)
+                .AddIngredient(ItemID.Bottle, 10)
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }
