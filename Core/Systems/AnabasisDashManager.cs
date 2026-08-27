@@ -14,7 +14,13 @@ namespace Anabasis.Core.Systems
             None, Basic, Invincible, Ram
         }
 
-        public static void DashStart(Player player, int dashDurationTicks)
+        private static void MakeImmuneDuringDash(Player player, int dashDurationTicks, int extraImmuneTime)
+        {
+            player.immune = true;
+            player.immuneTime = dashDurationTicks + extraImmuneTime;
+        }
+
+        public static void DashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed)
         {
             AnabasisPlayer dashPlayer = player.GetModPlayer<AnabasisPlayer>();
 
@@ -31,20 +37,25 @@ namespace Anabasis.Core.Systems
 
             if (player.dashDelay == 0 && !player.mount.Active)
             {
-
+                const int dashLeaveWindow = 30;
                 player.dashType = 142;
-                player.velocity.X = player.direction * 7.0f;
+
+                player.velocity.X = player.direction * dashSpeed;
                 dashPlayer.currentDashSpeed = player.velocity.X;
                 dashPlayer.dashDuration = dashDurationTicks;
 
-                player.immune = true;
-                player.immuneTime = dashDurationTicks + 45;
+                if ((int)type > 1) MakeImmuneDuringDash(player, dashDurationTicks, dashLeaveWindow);
+                if (type == DashType.Ram)
+                {
+                    // Make the player deal damage??
+                    // Maybe have the player spawn a hurtbox infront of it??
+                }
 
-                player.dashDelay = player.immuneTime + 45;
+                player.dashDelay = dashDurationTicks + dashLeaveWindow;
             }
         }
 
-        public static void UpdateDashes(Player player) 
+        public static void UpdateDashes(Player player)
         {
             AnabasisPlayer dashPlayer = player.GetModPlayer<AnabasisPlayer>();
 

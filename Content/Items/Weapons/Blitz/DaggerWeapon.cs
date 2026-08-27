@@ -11,6 +11,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
     public struct DashData
     {
         public int LengthTicks;
+        public float DashSpeed;
         public int ShockedOutDuration;
 
         /// <summary>
@@ -18,9 +19,10 @@ namespace Anabasis.Content.Items.Weapons.Blitz
         /// </summary>
         /// <param name="lengthTicks">Min Length in ticks</param>
         /// <param name="shockedOutDuration">Duration of cooldown in ticks</param>
-        public DashData(int lengthTicks, int shockedOutDuration)
+        public DashData(int lengthTicks, float dashSpeed, int shockedOutDuration)
         {
             LengthTicks = lengthTicks;
+            DashSpeed = dashSpeed;
             ShockedOutDuration = shockedOutDuration;
         }
     }
@@ -79,7 +81,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
 
         protected virtual void PerformDash(Player player, DashData data)
         {
-            AnabasisDashManager.DashStart(player, data.LengthTicks);
+            AnabasisDashManager.DashStart(player, data.LengthTicks, data.DashSpeed);
         }
     }
 }

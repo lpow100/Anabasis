@@ -11,7 +11,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
     {
         protected override DashData OnDash(Player player)
         {
-            return new DashData(8, 50);
+            return new DashData(10, 4.0f, 50);
         }
     }
 }
