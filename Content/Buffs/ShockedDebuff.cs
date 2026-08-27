@@ -14,21 +14,5 @@ namespace Anabasis.Content.Buffs
             // This makes the buff show as a debuff and helps with networking/stacking behavior.
             // (Exact flags depend on what you want.)
         }
-
-        public override void Update(NPC npc, ref int buffIndex)
-        {
-            if (!npc.boss)
-            {
-                npc.velocity.X *= 0.1f;
-                npc.velocity.Y *= 0.1f;
-                npc.frameCounter = 0;
-            }
-            else
-            {
-                npc.velocity.X *= 0.95f;
-                npc.velocity.Y *= 0.95f;
-            }
-        }
-
     }
 }

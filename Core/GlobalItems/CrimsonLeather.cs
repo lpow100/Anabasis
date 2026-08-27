@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Anabasis.Common.GlobalItems
+namespace Anabasis.Core.GlobalItems
 {
     public class CrimsonLeather : GlobalItem
     {

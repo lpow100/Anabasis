@@ -205,6 +205,16 @@ Items: {
 		DisplayName: Flinxs Foot
 		Tooltip: ""
 	}
+
+	GiantEelTrophy: {
+		DisplayName: Giant Eel Trophy
+		Tooltip: ""
+	}
+
+	WoodenThorn: {
+		DisplayName: Wooden Thorn
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -249,3 +259,4 @@ NPCs: {
 }
 
 DamageClasses.AlchemistDamageClass.DisplayName: Alchemy Damage
+Tiles.SeaStone.MapEntry: Sea Stone

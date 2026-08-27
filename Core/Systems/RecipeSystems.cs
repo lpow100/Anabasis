@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Anabasis.Common.ModSystems
+namespace Anabasis.Core.Systems
 {
     public class RecipeSystems : ModSystem
     {

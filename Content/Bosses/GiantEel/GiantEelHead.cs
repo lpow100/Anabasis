@@ -66,21 +66,21 @@ namespace Anabasis.Content.Bosses.GiantEel
 
             // Notice we use notExpertRule.OnSuccess instead of npcLoot.Add so it only applies in normal mode
             // Boss masks are spawned with 1/7 chance
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MinionBossMask>(), 7));
+//            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MinionBossMask>(), 7));
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SeaStone>(), 1, 30, 40));
+//            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SeaStone>(), 1, 30, 40));
 
             // Finally add the leading rule
-            npcLoot.Add(notExpertRule);
+//            npcLoot.Add(notExpertRule);
 
             // Add the treasure bag using ItemDropRule.BossBag (automatically checks for expert mode)
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MinionBossBag>()));
+//            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MinionBossBag>()));
 
             // ItemDropRule.MasterModeCommonDrop for the relic
-            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeable.Furniture.MinionBossRelic>()));
+//            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeable.Furniture.MinionBossRelic>()));
 
             // ItemDropRule.MasterModeDropOnAllPlayers for the pet
-            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<MinionBossPetItem>(), 4));
+//            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<MinionBossPetItem>(), 4));
         }
 
 

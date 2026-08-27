@@ -1,5 +1,3 @@
-using Anabasis.Common.DamageClasses;
-using Anabasis.Common.Players;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
