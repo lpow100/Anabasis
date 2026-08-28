@@ -1,4 +1,5 @@
 ﻿using Anabasis.Content.Buffs;
+using Anabasis.Core;
 using Anabasis.Core.ModPlayers;
 using Anabasis.Core.Systems;
 using Steamworks;
@@ -40,6 +41,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             Item.useStyle = ItemUseStyleID.Rapier;
             Item.useAnimation = 12;
             Item.useTime = 12;
+            Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
         }
 
 
@@ -70,7 +72,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
 
         public override bool AltFunctionUse(Player player)
         {
-            return true;
+            return !player.HasBuff<ShockedDebuff>();
         }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
 
         protected virtual void PerformDash(Player player, DashData data)
         {
-            AnabasisDashManager.DashStart(player, data.LengthTicks, data.DashSpeed);
+            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Invincible, data.LengthTicks, data.DashSpeed);
         }
     }
 }

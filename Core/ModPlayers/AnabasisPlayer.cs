@@ -12,6 +12,8 @@ namespace Anabasis.Core.ModPlayers
     {
         public int dashDuration;
         public float currentDashSpeed;
+        public AnabasisDashManager.DashType currentDashType;
+        public int currentDashDamage;
 
         public override void PostUpdate()
         {

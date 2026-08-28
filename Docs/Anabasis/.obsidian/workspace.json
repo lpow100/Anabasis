@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Class Aditions/Mage.md",
+                "file": "Class Aditions/Blitz.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mage"
+              "title": "Blitz"
             }
           }
         ],
@@ -181,7 +181,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Class Aditions/Mage.md",
+                "file": "Class Aditions/Blitz.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
@@ -269,14 +269,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "dc79c2394f5bde4d",
+  "active": "40d34679bb375492",
   "lastOpenFiles": [
+    "Class Aditions/Mage.md",
     "Class Aditions/Blitz.md",
     "Class Aditions/Melee.md",
     "Class Aditions/Alchemist.md",
     "Class Aditions/Summoner.md",
     "Class Aditions/Ranger.md",
-    "Class Aditions/Mage.md",
     "To Do.md",
     "Bosses.md",
     "Class Setups.md",

@@ -238,6 +238,7 @@ Projectiles: {
 	BlazingBottleProjectile.DisplayName: Blazing Bottle
 	HoneyVialProjectile.DisplayName: Honey Vial
 	ElectronicsJarProjectile.DisplayName: Electronics Jar Projectile
+	WoodenThornProjectile.DisplayName: Wooden Thorn Projectile
 }
 
 Buffs: {
