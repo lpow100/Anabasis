@@ -215,6 +215,11 @@ Items: {
 		DisplayName: Wooden Thorn
 		Tooltip: ""
 	}
+
+	CopperGauntlet: {
+		DisplayName: Copper Gauntlet
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -239,6 +244,7 @@ Projectiles: {
 	HoneyVialProjectile.DisplayName: Honey Vial
 	ElectronicsJarProjectile.DisplayName: Electronics Jar Projectile
 	WoodenThornProjectile.DisplayName: Wooden Thorn Projectile
+	DirectStrike.DisplayName: Direct Strike
 }
 
 Buffs: {

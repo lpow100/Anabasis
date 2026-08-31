@@ -22,17 +22,17 @@ namespace Anabasis.Content.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.Size = new Vector2(18); 
-            Projectile.aiStyle = -1; 
+            Projectile.Size = new Vector2(18);
+            Projectile.aiStyle = -1;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.scale = 1f;
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.ownerHitCheck = true; 
-            Projectile.extraUpdates = 1; 
-            Projectile.timeLeft = 3600; 
-            Projectile.hide = true; 
+            Projectile.ownerHitCheck = true;
+            Projectile.extraUpdates = 1;
+            Projectile.timeLeft = 3600;
+            Projectile.hide = true;
         }
 
         public override void AI()

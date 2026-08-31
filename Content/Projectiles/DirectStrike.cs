@@ -8,8 +8,6 @@ namespace Anabasis.Content.Projectiles
 {
     public class DirectStrike : ModProjectile, ILocalizedModType
     {
-        public new string LocalizationCategory => "Projectiles.Typeless";
-        public override string Texture => "CalamityMod/Projectiles/InvisibleProj";
         public bool invalidTarget => (Projectile.ai[0] < 0f || Projectile.ai[0] > 199f);
 
         // You can set Projectile AI 1 & 2 to the X/Y velocity that you would like to launch the target, even if the direct strike deals no damage.
@@ -61,7 +59,7 @@ namespace Anabasis.Content.Projectiles
                 NPC target = Main.npc[(int)Projectile.ai[0]];
                 if (pushVelocity != Vector2.Zero && pushVelocity.X < 255f && !invalidTarget)
                 {
-                    target.MoveNPC(pushVelocity, pushVelocity.Length(), hasStongDisplacement, Main.player[Projectile.owner]);
+                    //target.MoveNPC(pushVelocity, pushVelocity.Length(), hasStongDisplacement, Main.player[Projectile.owner]);
                 }
                 return true;
             }

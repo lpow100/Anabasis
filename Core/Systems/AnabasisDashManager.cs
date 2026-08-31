@@ -1,14 +1,11 @@
 ﻿using Anabasis.Content.Projectiles;
 using Anabasis.Core.ModPlayers;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Xna.Framework;
-using Mono.Cecil;
-using System.Reflection;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System.Collections.Generic;
 
-// Adapted from https://github.com/Fargo-Team/FargosSoulsMod/blob/226fadeadbe3422785a7708ba2cdf53bd8548c00/Core/Systems/DashManager.cs
 namespace Anabasis.Core.Systems
 {
     public class AnabasisDashManager : ModSystem
@@ -31,34 +28,32 @@ namespace Anabasis.Core.Systems
             if (player.whoAmI != Main.myPlayer)
                 return;
 
-            //if (player.dashType != 0 && player.dashType != 142)
-            //    return;
-
-            if (dashPlayer.dashDuration > 0) // already dashing - don't restart the timer
+            if (dashPlayer.dashDuration > 0) // Already dashing
                 return;
 
             if (player.dashDelay == 0 && !player.mount.Active)
             {
                 const int dashLeaveWindow = 30;
                 player.dashType = 142;
-                dashPlayer.currentDashDamage = dashDamage; 
+
+                // Store state in dashPlayer
+                dashPlayer.currentDashType = type; // FIX #1: Store the dash type!
+                dashPlayer.currentDashDamage = dashDamage;
 
                 Vector2 dashDir = Main.MouseWorld - player.position;
                 dashDir.Normalize();
-                dashDir.Y *= 1.8f; // Gravity is a bitch
+                dashDir.Y *= 1.8f; // Gravity offset
 
                 player.velocity = dashDir * dashSpeed;
                 dashPlayer.currentDashSpeed = player.velocity.X;
                 dashPlayer.dashDuration = dashDurationTicks;
 
-                if ((int)type > 1) MakeImmuneDuringDash(player, dashDurationTicks, dashLeaveWindow);
-                if (type == DashType.Ram)
-                {
-                    // Make the player deal damage??
-                    // Maybe have the player spawn a hurtbox infront of it??
-                }
+                if ((int)type > 1)
+                    MakeImmuneDuringDash(player, dashDurationTicks, dashLeaveWindow);
 
                 player.dashDelay = dashDurationTicks + dashLeaveWindow;
+
+                dashPlayer.damagedDuringDash = new HashSet<int>();
             }
         }
 
@@ -76,28 +71,48 @@ namespace Anabasis.Core.Systems
 
                 if (dashPlayer.currentDashType == DashType.Ram)
                 {
-                    // Adapted from https://github.com/CalamityTeam/CalamityModPublic/blob/1a8cebd27ec5615316b78f71973446b5528d2b78/CalPlayer/CalamityPlayerDashEffects.cs
-                    Rectangle hurtbox = new Rectangle((int)(player.position.X + player.velocity.X * 0.5 - 4f), (int)(player.position.Y + player.velocity.Y * 0.5 - 4), player.width + 8, player.height + 8);
+                    Rectangle hurtbox = new Rectangle(
+                        (int)(player.position.X + player.velocity.X * 0.5f - 4f),
+                        (int)(player.position.Y + player.velocity.Y * 0.5f - 4f),
+                        player.width + 8,
+                        player.height + 8
+                    );
+
                     foreach (NPC npc in Main.ActiveNPCs)
                     {
                         if (player.dontHurtCritters && NPCID.Sets.CountsAsCritter[npc.type])
                             continue;
 
+                        if (dashPlayer.damagedDuringDash.Contains(npc.whoAmI))
+                        {
+                            continue;
+                        }
+
                         if (!npc.dontTakeDamage && !npc.friendly)
                         {
                             if (hurtbox.Intersects(npc.getRect()) && (npc.noTileCollide || player.CanHit(npc)))
                             {
-                                // Duplicated from the way TML edits vanilla ram dash damage (and Shield of Cthulhu)
                                 int dashDamage = (int)player.GetTotalDamage<BlitzDamageClass>().ApplyTo(dashPlayer.currentDashDamage);
 
-                                Projectile ram = Projectile.NewProjectileDirect(player.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<DirectStrike>(), dashDamage, 0f, player.whoAmI, npc.whoAmI);
+                                // FIX #2: Ensure DirectStrike projectile hits target correctly and doesn't flood projectile limits
+                                Projectile ram = Projectile.NewProjectileDirect(
+                                    player.GetSource_FromThis(),
+                                    npc.Center,
+                                    Vector2.Zero,
+                                    ModContent.ProjectileType<DirectStrike>(),
+                                    dashDamage,
+                                    0f,
+                                    player.whoAmI,
+                                    npc.whoAmI
+                                );
                                 ram.DamageType = ModContent.GetInstance<BlitzDamageClass>();
+
+                                dashPlayer.damagedDuringDash.Add(npc.whoAmI);
                             }
                         }
                     }
                 }
             }
-
         }
     }
 }

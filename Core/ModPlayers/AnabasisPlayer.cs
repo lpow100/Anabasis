@@ -14,8 +14,9 @@ namespace Anabasis.Core.ModPlayers
         public float currentDashSpeed;
         public AnabasisDashManager.DashType currentDashType;
         public int currentDashDamage;
+        public HashSet<int> damagedDuringDash;
 
-        public override void PostUpdate()
+        public override void PreUpdateMovement()
         {
             AnabasisDashManager.UpdateDashes(this.Player);
             if (dashDuration > 0)

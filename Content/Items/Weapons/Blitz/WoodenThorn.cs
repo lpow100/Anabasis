@@ -17,8 +17,8 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             base.SetDefaults();
             Item.damage = 7;
             Item.knockBack = 4f;
-            Item.width = 22;
-            Item.height = 20;
+            Item.width = 24;
+            Item.height = 24;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = false;
             Item.noUseGraphic = true;
@@ -26,7 +26,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
 
             Item.rare = ItemRarityID.White;
             Item.value = Item.sellPrice(0, 0, 0, 10);
-                     
+
             Item.shoot = ModContent.ProjectileType<WoodenThornProjectile>();
             Item.shootSpeed = 2.1f;
         }
