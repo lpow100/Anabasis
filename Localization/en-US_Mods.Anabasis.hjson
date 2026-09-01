@@ -245,6 +245,7 @@ Projectiles: {
 	ElectronicsJarProjectile.DisplayName: Electronics Jar Projectile
 	WoodenThornProjectile.DisplayName: Wooden Thorn Projectile
 	DirectStrike.DisplayName: Direct Strike
+	DaggerStrikeProjectile.DisplayName: Dagger Strike Projectile
 }
 
 Buffs: {

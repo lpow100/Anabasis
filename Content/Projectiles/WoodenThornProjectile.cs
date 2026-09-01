@@ -50,6 +50,23 @@ namespace Anabasis.Content.Projectiles
                 player.heldProj = Projectile.whoAmI;
             }
 
+            if (Timer == (int)TotalDuration / 2)
+            {
+                if (Timer == FadeInDuration && Projectile.owner == Main.myPlayer)
+                {
+                    Projectile.NewProjectile(
+                        Projectile.GetSource_FromThis(),
+                        Projectile.Center,
+                        Projectile.velocity.SafeNormalize(Vector2.UnitX),
+                        ModContent.ProjectileType<DaggerStrikeProjectile>(),
+                        Projectile.damage,
+                        Projectile.knockBack,
+                        Projectile.owner
+                    );
+                }
+
+            }
+
             // Fade in and out
             // GetLerpValue returns a value between 0f and 1f - if clamped is true - representing how far Timer got along the "distance" defined by the first two parameters
             // The first call handles the fade in, the second one the fade out.
