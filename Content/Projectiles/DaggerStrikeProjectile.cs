@@ -10,6 +10,7 @@ namespace Anabasis.Content.Projectiles
         private const int JabDuration = 14;
         private const float StartDistance = 12f;
         private const float JabDistance = 54f;
+        private Vector2 startPos;
 
         public int Timer
         {
@@ -36,6 +37,11 @@ namespace Anabasis.Content.Projectiles
 
             // Set this to false if the projectile uses its normal texture.
             Projectile.hide = false;
+        }
+
+        public override void OnSpawn(Terraria.DataStructures.IEntitySource source)
+        {
+            startPos = Projectile.position;
         }
 
         public override void AI()
@@ -70,13 +76,8 @@ namespace Anabasis.Content.Projectiles
                 easedProgress
             );
 
-            Vector2 playerCenter = player.RotatedRelativePoint(
-                player.MountedCenter,
-                reverseRotation: false,
-                addGfxOffY: false
-            );
 
-            Projectile.Center = playerCenter + direction * distance;
+            Projectile.Center = startPos + direction * distance;
 
             Projectile.rotation =
                 direction.ToRotation() + MathHelper.PiOver2;
