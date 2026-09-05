@@ -19,8 +19,8 @@ namespace Anabasis.Content.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.width = 2;
-            Projectile.height = 2;
+            Projectile.width = 15;
+            Projectile.height = 24;
             Projectile.friendly = true;
             Projectile.penetrate = 1;
             Projectile.extraUpdates = 0;

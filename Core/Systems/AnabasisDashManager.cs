@@ -106,6 +106,7 @@ namespace Anabasis.Core.Systems
                                     npc.whoAmI
                                 );
                                 ram.DamageType = ModContent.GetInstance<BlitzDamageClass>();
+                                ram.ai[0] = npc.whoAmI;
 
                                 dashPlayer.damagedDuringDash.Add(npc.whoAmI);
                             }

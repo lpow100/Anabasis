@@ -220,6 +220,11 @@ Items: {
 		DisplayName: Copper Gauntlet
 		Tooltip: ""
 	}
+
+	GemKnuckles: {
+		DisplayName: Gem Knuckles
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
