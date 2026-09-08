@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Anabasis.Content.Buffs;
@@ -7,13 +7,13 @@ using Anabasis.Core;
 
 namespace Anabasis.Content.Items.Weapons.Blitz
 {
-    public class CopperGauntlet : ModItem
+    public class AntlionDagger : ModItem
     {
-        const int dashCooldown = 75;
-        const int dashTime = 14;
-        const float dashSpeed = 8.5f;
-        const int dashDamage = 30;
-        const int momentumCost = 10;
+        const int dashCooldown = 50;
+        const int dashTime = 16;
+        const float dashSpeed = 12.5f;
+        const int dashDamage = 50;
+        const int momentumCost = 20;
 
         public override void SetDefaults()
         {
@@ -25,21 +25,21 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             Item.damage = dashDamage;
             Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
             Item.noMelee = true;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.buyPrice(silver: 6, copper: 10);
+            Item.rare = ItemRarityID.White;
+            Item.value = Item.buyPrice(copper: 90);
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.CopperBar, 12)
-                .AddTile(TileID.Anvils)
+                .AddRecipeGroup(RecipeGroupID.Wood, 30)
+                .AddTile(TileID.WorkBenches)
                 .Register();
         }
 
         public override bool? UseItem(Player player)
         {
-            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Pounce, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);
+            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Ram, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);
             return base.UseItem(player);
         }
     }

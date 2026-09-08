@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Anabasis.Content.Buffs;
@@ -7,7 +7,7 @@ using Anabasis.Core;
 
 namespace Anabasis.Content.Items.Weapons.Blitz
 {
-    public class CopperGauntlet : ModItem
+    public class TinGauntlet : ModItem
     {
         const int dashCooldown = 75;
         const int dashTime = 14;
@@ -32,7 +32,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.CopperBar, 12)
+                .AddIngredient(ItemID.TinBar, 12)
                 .AddTile(TileID.Anvils)
                 .Register();
         }

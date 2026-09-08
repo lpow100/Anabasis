@@ -13,25 +13,22 @@ Crafted with 15 copper bars at an anvil
 Gauntlet; Deals 5 damage, 7.5 sec cooldown for dash, 5 length dash
 Crafted with 15 tin bars at an anvil
 ## Pre-Boss
-### Platnium Dagger
+### Crimblade
 Dagger; Deals 18 damage, 2 sec cooldown for dash, 7 length dash
-Crafted with 20 platinum bars
-### Gold Dagger
+Crafted with 12 crimsite at an avil
+### Demonic blade
 Dagger; Deals 18 damage, 2 sec cooldown for dash, 7 length dash
-Crafted with 20 gold bars
+Crafted with 12 demonite at an anvil
 ### Gem Knuckles
 Gauntlet; Deals 7 damage, 5 sec cooldown for dash, 10 length dash
 Crafted with 5 of any gem and 80 stone at an anvil
 ## Pre-Evil Boss
-### Crimblade
+### Antlion Dagger
 Dagger; Deals 20 damage, 1.5 sec cooldown for dash, 12 length dash
-Crafted with 15 crimsite at an avil
-### Demonic blade
-Dagger; Deals 20 damage, 1.5 sec cooldown for dash, 12 length dash
-Crafted with 15 demonite at an anvil
+Crafted with 2 antlion mandibles and 7 sturdy fossils at an anvil
 ### Fur Glove
 Gauntlet; Deals 9 damage, 4 sec cooldown for dash 15 length dash
-Crafted with 8 flinx fur and 1 leather at a workbench
+Crafted with 8 flinx fur and 3 leather at a workbench
 ## Pre-Bee/Deer
 ### Hot Knife
 Dagger; Deals 19 damage, 1.45 sec cooldown for dash, 13 length dash

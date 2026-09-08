@@ -3,15 +3,17 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Anabasis.Content.Buffs;
 using Anabasis.Core.Systems;
+using Anabasis.Core;
 
 namespace Anabasis.Content.Items.Weapons.Blitz
 {
     public class GemKnuckles : ModItem
     {
-        const int dashTime = 7;
-        const int dashCooldown = 5 * 60;
-        const float dashSpeed = 8.5f;
-        const int dashDamage = 30;
+        const int dashCooldown = 60;
+        const int dashTime = 16;
+        const float dashSpeed = 10.5f;
+        const int dashDamage = 45;
+        const int momentumCost = 20;
 
         public override void SetDefaults()
         {
@@ -20,7 +22,9 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 14;
             Item.useTime = 14;
-
+            Item.damage = dashDamage;
+            Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
+            Item.noMelee = true;
             Item.rare = ItemRarityID.Blue;
             Item.value = Item.buyPrice(silver: 6, copper: 10);
         }
@@ -28,27 +32,15 @@ namespace Anabasis.Content.Items.Weapons.Blitz
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.GoldBar, 10)
+                .AddIngredient(ItemID.StoneBlock, 80)
                 .AddRecipeGroup("Anabasis:AnyGem", 5)
                 .AddTile(TileID.Anvils)
                 .Register();
-
-            CreateRecipe()
-                .AddIngredient(ItemID.PlatinumBar, 10)
-                .AddRecipeGroup("Anabasis:AnyGem", 5)
-                .AddTile(TileID.Anvils)
-                .Register();
-        }
-
-        public override bool CanUseItem(Player player)
-        {
-            return !player.HasBuff<ShockedDebuff>();
         }
 
         public override bool? UseItem(Player player)
         {
-            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Ram, dashTime, dashSpeed, dashDamage);
-            player.AddBuff(ModContent.BuffType<ShockedDebuff>(), dashTime + dashCooldown);
+            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Pounce, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);
             return base.UseItem(player);
         }
     }

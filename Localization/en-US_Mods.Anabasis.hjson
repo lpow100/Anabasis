@@ -225,6 +225,16 @@ Items: {
 		DisplayName: Gem Knuckles
 		Tooltip: ""
 	}
+
+	AntlionDagger: {
+		DisplayName: Antlion Dagger
+		Tooltip: ""
+	}
+
+	TinGauntlet: {
+		DisplayName: Tin Gauntlet
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -251,6 +261,8 @@ Projectiles: {
 	WoodenThornProjectile.DisplayName: Wooden Thorn Projectile
 	DirectStrike.DisplayName: Direct Strike
 	DaggerStrikeProjectile.DisplayName: Dagger Strike Projectile
+	AntlionDaggerProjectile.DisplayName: Antlion Dagger Projectile
+	AOEStrikeProjectile.DisplayName: A O E Strike Projectile
 }
 
 Buffs: {
@@ -273,3 +285,4 @@ NPCs: {
 
 DamageClasses.AlchemistDamageClass.DisplayName: Alchemy Damage
 Tiles.SeaStone.MapEntry: Sea Stone
+UI.ExampleResource: Momentum: {0} / {1}

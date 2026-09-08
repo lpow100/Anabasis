@@ -7,6 +7,9 @@ namespace Anabasis.Content.Projectiles
 {
     public class WoodenThornProjectile : ModProjectile
     {
+
+        public override string Texture => "Anabasis/Content/Items/Weapons/Blitz/WoodenThorn";
+
         public const int FadeInDuration = 7;
         public const int FadeOutDuration = 4;
 
@@ -53,7 +56,7 @@ namespace Anabasis.Content.Projectiles
             {
                 Vector2 stabDirection = Projectile.velocity.SafeNormalize(Vector2.UnitX);
 
-                float distanceFromShortsword = 40f; // Distance in pixels
+                float distanceFromShortsword = 30f; // Distance in pixels
 
                 Vector2 spawnPosition =
                     Projectile.Center + stabDirection * distanceFromShortsword;

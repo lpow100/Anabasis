@@ -1,39 +1,46 @@
-﻿using Anabasis.Content.Projectiles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Anabasis.Content.Buffs;
+using Anabasis.Core.Systems;
+using Anabasis.Core;
 
 namespace Anabasis.Content.Items.Weapons.Blitz
 {
-    public class WoodenThorn : DaggerWeapon
+    public class WoodenThorn : ModItem
     {
+        const int dashCooldown = 60;
+        const int dashTime = 14;
+        const float dashSpeed = 10f;
+        const int dashDamage = 7;
+        const int momentumCost = 10;
+
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.damage = 7;
-            Item.knockBack = 4f;
-            Item.width = 24;
-            Item.height = 24;
-            Item.UseSound = SoundID.Item1;
-            Item.autoReuse = false;
-            Item.noUseGraphic = true;
+            Item.width = 26;
+            Item.height = 30;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.useAnimation = 14;
+            Item.useTime = 14;
+            Item.damage = dashDamage;
+            Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
             Item.noMelee = true;
-
             Item.rare = ItemRarityID.White;
-            Item.value = Item.sellPrice(0, 0, 0, 10);
-
-            Item.shoot = ModContent.ProjectileType<WoodenThornProjectile>();
-            Item.shootSpeed = 2.1f;
+            Item.value = Item.buyPrice(copper: 90);
         }
 
-        protected override DashData OnDash(Player player)
+        public override void AddRecipes()
         {
-            return new DashData(10, 5.0f, 300);
+            CreateRecipe()
+                .AddRecipeGroup(RecipeGroupID.Wood, 30)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+        }
+
+        public override bool? UseItem(Player player)
+        {
+            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Ram, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);
+            return base.UseItem(player);
         }
     }
 }
