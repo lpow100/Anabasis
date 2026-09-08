@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Anabasis.Content.Buffs;
@@ -7,13 +7,13 @@ using Anabasis.Core;
 
 namespace Anabasis.Content.Items.Weapons.Blitz
 {
-    public class CopperGauntlet : ModItem
+    public class FurGlove : ModItem
     {
-        const int dashCooldown = 75;
-        const int dashTime = 14;
-        const float dashSpeed = 8.5f;
-        const int dashDamage = 30;
-        const int momentumCost = 10;
+        const int dashCooldown = 55;
+        const int dashTime = 17;
+        const float dashSpeed = 11f;
+        const int dashDamage = 60;
+        const int momentumCost = 22;
 
         public override void SetDefaults()
         {
@@ -32,8 +32,9 @@ namespace Anabasis.Content.Items.Weapons.Blitz
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.CopperBar, 12)
-                .AddTile(TileID.Anvils)
+                .AddIngredient(ItemID.FlinxFur, 6)
+                .AddIngredient(ItemID.Leather, 2)
+                .AddTile(TileID.WorkBenches)
                 .Register();
         }
 

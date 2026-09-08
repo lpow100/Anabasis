@@ -28,7 +28,7 @@ Dagger; Deals 20 damage, 1.5 sec cooldown for dash, 12 length dash
 Crafted with 2 antlion mandibles and 7 sturdy fossils at an anvil
 ### Fur Glove
 Gauntlet; Deals 9 damage, 4 sec cooldown for dash 15 length dash
-Crafted with 8 flinx fur and 3 leather at a workbench
+Crafted with 8 flinx fur and 1 leather at a workbench
 ## Pre-Bee/Deer
 ### Hot Knife
 Dagger; Deals 19 damage, 1.45 sec cooldown for dash, 13 length dash

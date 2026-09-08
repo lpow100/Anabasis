@@ -25,5 +25,13 @@ namespace Anabasis.Core.Systems
             );
             RecipeGroup.RegisterGroup("Anabasis:AnyGem", gemGroup);
         }
+
+        public override void AddRecipes()
+        {
+            Recipe.Create(ItemID.Leather)
+                .AddIngredient(ItemID.Vertebrae, 5)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+        }
     }
 }

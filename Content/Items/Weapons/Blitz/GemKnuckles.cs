@@ -21,7 +21,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             Item.height = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 14;
-            Item.useTime = 14;
+            Item.useTime = dashCooldown;
             Item.damage = dashDamage;
             Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
             Item.noMelee = true;
