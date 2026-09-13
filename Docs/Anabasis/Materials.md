@@ -8,5 +8,5 @@ Used
 ## Martian Scraps
 Dropped from all martians
 # Post-ML
-## Pyroxene
+## Pyrrhotite
 Found in basalt crags biome, used for gear after Phobos and Deimos
