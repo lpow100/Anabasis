@@ -235,6 +235,11 @@ Items: {
 		DisplayName: Tin Gauntlet
 		Tooltip: ""
 	}
+
+	FurGlove: {
+		DisplayName: Fur Glove
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
