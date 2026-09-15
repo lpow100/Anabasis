@@ -250,7 +250,7 @@ namespace Anabasis.Core.Systems
             );
             ram.DamageType = ModContent.GetInstance<BlitzDamageClass>();
 
-            ForcedDashStart(player, DashType.Invincible, dashPlayer.dashDuration / 4, -Math.Abs(dashPlayer.currentDashSpeed), dashPlayer.currentDashDamage);
+            ForcedDashStart(player, DashType.Invincible, dashPlayer.dashDuration, -Math.Abs(dashPlayer.currentDashSpeed) * 4 / 5 , dashPlayer.currentDashDamage);
         }
     }
 }

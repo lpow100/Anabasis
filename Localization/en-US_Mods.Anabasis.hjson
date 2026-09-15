@@ -240,6 +240,11 @@ Items: {
 		DisplayName: Fur Glove
 		Tooltip: ""
 	}
+
+	HiveHand: {
+		DisplayName: Hive Hand
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

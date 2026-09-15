@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Biomes.md",
+                "file": "Class Aditions/Blitz.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Biomes"
+              "title": "Blitz"
             }
           }
         ],
@@ -195,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Biomes.md",
+                "file": "Class Aditions/Blitz.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -285,11 +285,11 @@
   },
   "active": "7b08d4624f604737",
   "lastOpenFiles": [
+    "To Do.md",
+    "Biomes.md",
     "Bosses.md",
     "Materials.md",
-    "Biomes.md",
     "Class Aditions/Blitz.md",
-    "To Do.md",
     "Changes.md",
     "alchemist.md",
     "Class Aditions/Mage.md",
