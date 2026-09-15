@@ -55,25 +55,25 @@ namespace Anabasis.Core.Systems
             if (blitzPlayer.momentum > blitzPlayer.maxMomentum) blitzPlayer.momentum = blitzPlayer.maxMomentum;
         }
 
-        public static void DashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0)
+        public static bool DashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0)
         {
             BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
 
             if (blitzPlayer.momentum <= momentumCost || blitzPlayer.dashDuration > 0 || player.dashDelay > 0)
-                return;
+                return false;
 
-            ForcedDashStart(player, type, dashDurationTicks, dashSpeed, dashCooldown, dashDamage, momentumCost);
+            return ForcedDashStart(player, type, dashDurationTicks, dashSpeed, dashCooldown, dashDamage, momentumCost);
         }
 
-        public static void ForcedDashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0)
+        public static bool ForcedDashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0)
         {
             BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
 
             if (player.whoAmI != Main.myPlayer)
-                return;
+                return false;
 
             if (player.mount.Active)
-                return;
+                return false;
 
             player.dashType = 142;
             player.dashDelay = dashDurationTicks + dashCooldown;
@@ -94,6 +94,7 @@ namespace Anabasis.Core.Systems
                 MakeImmuneDuringDash(player, dashDurationTicks, 95);
 
             blitzPlayer.momentum -= momentumCost;
+            return true;
         }
 
         public static void UpdateDashInfo(Player player)

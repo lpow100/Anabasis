@@ -221,9 +221,24 @@ Items: {
 		Tooltip: ""
 	}
 
+	Crimblade: {
+		DisplayName: Crimblade
+		Tooltip: "A crimson dash through your foes"
+	}
+
+	DemonicBlade: {
+		DisplayName: Demonic Blade
+		Tooltip: "A corrupt dash through your foes"
+	}
+
 	GemKnuckles: {
 		DisplayName: Gem Knuckles
 		Tooltip: ""
+	}
+
+	HiveHand: {
+		DisplayName: Honey Hand
+		Tooltip: "Dashes release a swarm of bees"
 	}
 
 	AntlionDagger: {
@@ -239,6 +254,11 @@ Items: {
 	FurGlove: {
 		DisplayName: Fur Glove
 		Tooltip: ""
+	}
+
+	SuperSoftGlove: {
+		DisplayName: Ultra-Soft Glove
+		Tooltip: "A soft glove for a powerful pounce"
 	}
 }
 
