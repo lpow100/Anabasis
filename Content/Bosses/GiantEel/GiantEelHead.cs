@@ -158,14 +158,15 @@ namespace Anabasis.Content.Bosses.GiantEel
 
                 case 1:
                     AITimer++;
-                    NPC.velocity *= 0.9f;
+                    NPC.velocity *= 0.89f;
 
                     if (AITimer > 30)
                     {
                         AttackState = 2;
                         AITimer = 0;
                         Vector2 dir = toTarget.SafeNormalize(Vector2.UnitX);
-                        NPC.velocity = dir * 16f; // lunge speed
+                        NPC.velocity = dir * 14f; // lunge speed
+                        NPC.velocity.X *= 1.5f;
                         SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         NPC.netUpdate = true;
                     }

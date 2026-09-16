@@ -5,7 +5,7 @@ using Anabasis.Content.Buffs;
 using Anabasis.Core.Systems;
 using Anabasis.Core;
 
-namespace Anabasis.Content.Items.Weapons.Blitz
+namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
 {
     public class TinGauntlet : ModItem
     {
@@ -13,7 +13,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
         const int dashTime = 14;
         const float dashSpeed = 8.5f;
         const int dashDamage = 30;
-        const int momentumCost = 10;
+        const int momentumCost = 14;
 
         public override void SetDefaults()
         {

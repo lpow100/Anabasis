@@ -5,15 +5,15 @@ using Anabasis.Content.Buffs;
 using Anabasis.Core.Systems;
 using Anabasis.Core;
 
-namespace Anabasis.Content.Items.Weapons.Blitz
+namespace Anabasis.Content.Items.Weapons.Blitz.Daggers
 {
-    public class WoodenThorn : ModItem
+    public class AntlionDagger : ModItem
     {
-        const int dashCooldown = 60;
-        const int dashTime = 14;
-        const float dashSpeed = 10f;
-        const int dashDamage = 7;
-        const int momentumCost = 10;
+        const int dashCooldown = 50;
+        const int dashTime = 16;
+        const float dashSpeed = 12.5f;
+        const int dashDamage = 50;
+        const int momentumCost = 20;
 
         public override void SetDefaults()
         {

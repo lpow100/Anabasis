@@ -1,19 +1,22 @@
+﻿using Anabasis.Content.Buffs;
+using Anabasis.Core;
+using Anabasis.Core.ModPlayers;
+using Anabasis.Core.Systems;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Anabasis.Content.Buffs;
-using Anabasis.Core.Systems;
-using Anabasis.Core;
 
-namespace Anabasis.Content.Items.Weapons.Blitz
+namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
 {
-    public class CopperGauntlet : ModItem
+    public class SuperSoftGlove : ModItem
     {
-        const int dashCooldown = 75;
-        const int dashTime = 14;
-        const float dashSpeed = 8.5f;
-        const int dashDamage = 30;
-        const int momentumCost = 10;
+        const int dashCooldown = 50;
+        const int dashTime = 17;
+        const float dashSpeed = 11f;
+        const int dashDamage = 97;
+        const int momentumCost = 25;
 
         public override void SetDefaults()
         {
@@ -25,14 +28,15 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             Item.damage = dashDamage;
             Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
             Item.noMelee = true;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.buyPrice(silver: 6, copper: 10);
+            Item.rare = ItemRarityID.Green;
+            Item.value = Item.buyPrice(silver: 180);
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.CopperBar, 12)
+                .AddIngredient<DeerPelt>(8)
+                .AddIngredient(ItemID.Leather, 3)
                 .AddTile(TileID.Anvils)
                 .Register();
         }

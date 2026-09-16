@@ -1,19 +1,22 @@
-﻿using Terraria;
+using Anabasis.Content.Buffs;
+using Anabasis.Core;
+using Anabasis.Core.ModPlayers;
+using Anabasis.Core.Systems;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Anabasis.Content.Buffs;
-using Anabasis.Core.Systems;
-using Anabasis.Core;
 
-namespace Anabasis.Content.Items.Weapons.Blitz
+namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
 {
-    public class FurGlove : ModItem
+    public class BlueKnuckles : ModItem
     {
-        const int dashCooldown = 55;
+        const int dashCooldown = 50;
         const int dashTime = 17;
-        const float dashSpeed = 11f;
-        const int dashDamage = 60;
-        const int momentumCost = 22;
+        const float dashSpeed = 11.5f;
+        const int dashDamage = 110;
+        const int momentumCost = 27;
 
         public override void SetDefaults()
         {
@@ -25,16 +28,16 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             Item.damage = dashDamage;
             Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
             Item.noMelee = true;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.buyPrice(silver: 6, copper: 10);
+            Item.rare = ItemRarityID.Green;
+            Item.value = Item.buyPrice(silver: 180);
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.FlinxFur, 6)
-                .AddIngredient(ItemID.Leather, 2)
-                .AddTile(TileID.WorkBenches)
+                .AddIngredient<DeerPelt>(8)
+                .AddIngredient(ItemID.Leather, 3)
+                .AddTile(TileID.Anvils)
                 .Register();
         }
 

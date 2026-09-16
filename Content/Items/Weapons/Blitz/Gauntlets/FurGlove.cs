@@ -5,15 +5,15 @@ using Anabasis.Content.Buffs;
 using Anabasis.Core.Systems;
 using Anabasis.Core;
 
-namespace Anabasis.Content.Items.Weapons.Blitz
+namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
 {
-    public class GemKnuckles : ModItem
+    public class FurGlove : ModItem
     {
-        const int dashCooldown = 60;
-        const int dashTime = 16;
-        const float dashSpeed = 10.5f;
-        const int dashDamage = 45;
-        const int momentumCost = 20;
+        const int dashCooldown = 55;
+        const int dashTime = 17;
+        const float dashSpeed = 11f;
+        const int dashDamage = 60;
+        const int momentumCost = 22;
 
         public override void SetDefaults()
         {
@@ -32,9 +32,9 @@ namespace Anabasis.Content.Items.Weapons.Blitz
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.StoneBlock, 80)
-                .AddRecipeGroup("Anabasis:AnyGem", 5)
-                .AddTile(TileID.Anvils)
+                .AddIngredient(ItemID.FlinxFur, 6)
+                .AddIngredient(ItemID.Leather, 2)
+                .AddTile(TileID.WorkBenches)
                 .Register();
         }
 

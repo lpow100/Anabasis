@@ -8,13 +8,13 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Anabasis.Content.Items.Weapons.Blitz
+namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
 {
     public class HiveHand : ModItem
     {
         const int dashCooldown = 50;
-        const int dashTime = 18;
-        const float dashSpeed = 16f;
+        const int dashTime = 17;
+        const float dashSpeed = 10.75f;
         const int dashDamage = 85;
         const int momentumCost = 25;
 

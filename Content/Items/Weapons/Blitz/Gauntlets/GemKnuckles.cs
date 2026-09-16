@@ -5,15 +5,15 @@ using Anabasis.Content.Buffs;
 using Anabasis.Core.Systems;
 using Anabasis.Core;
 
-namespace Anabasis.Content.Items.Weapons.Blitz
+namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
 {
-    public class AntlionDagger : ModItem
+    public class GemKnuckles : ModItem
     {
-        const int dashCooldown = 50;
+        const int dashCooldown = 60;
         const int dashTime = 16;
-        const float dashSpeed = 12.5f;
-        const int dashDamage = 50;
-        const int momentumCost = 20;
+        const float dashSpeed = 10.5f;
+        const int dashDamage = 45;
+        const int momentumCost = 15;
 
         public override void SetDefaults()
         {
@@ -25,21 +25,22 @@ namespace Anabasis.Content.Items.Weapons.Blitz
             Item.damage = dashDamage;
             Item.DamageType = ModContent.GetInstance<BlitzDamageClass>();
             Item.noMelee = true;
-            Item.rare = ItemRarityID.White;
-            Item.value = Item.buyPrice(copper: 90);
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.buyPrice(silver: 6, copper: 10);
         }
 
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddRecipeGroup(RecipeGroupID.Wood, 30)
-                .AddTile(TileID.WorkBenches)
+                .AddIngredient(ItemID.StoneBlock, 80)
+                .AddRecipeGroup("Anabasis:AnyGem", 5)
+                .AddTile(TileID.Anvils)
                 .Register();
         }
 
         public override bool? UseItem(Player player)
         {
-            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Ram, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);
+            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Pounce, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);
             return base.UseItem(player);
         }
     }
