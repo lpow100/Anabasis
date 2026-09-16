@@ -58,7 +58,28 @@ Gauntlet; Deals 13 damage 3.8 sec cooldown for dash, 15 length dash
 Bounces back upon hitting an enemy
 Crafted with 13 sea stone at an anvil
 # Armor
-
+## Light Rag Set
+Set Bonus +2 blitz damage
+### Cloth Mask
++1 blitz damage
++2% momentum generation
+2 defense
+"A mask weaved with fine materials, spun to be light"
+Crafted with 10 silk, 5 platinum/gold bars and 5 rope at a loom
+### Light Shirt
++2 blitz damage
++1% momentum generation
+3 defense
+"A shirt weaved with fine materials, made to be agile"
+Crafted with 20 silk, 6 platinum/gold bars and 7 rope at a loom
+### Rag Leggings
++3% momentum generation
+2 defense
+"Leggings weaved with fine materials, sewed to be quick"
+Crafted with 8 silk, 4 platinum/gold bars and 4 rope at a loom
+## Interstellar Set
+Set Bonus: +5% momentum generation
++3 Blitz damage
 ## Shell Set
 Set Bonus: +10% blitz critical strike chance
 ### Seashell Helm
