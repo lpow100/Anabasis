@@ -4,5 +4,5 @@ Has clumps of [[Materials#Pyrrhotite|Pyrrhotite]] within the ground, having this
 Spawns in hell on the dungeon side of the world
 Made out of:
  - Serpentine (Basic stone block)
- - Andesite?
- - [[Materials#Pyrrhotite|Pyrrhotite]] ore clumps
+ - Saponite (Other basic stone block)
+ - [[Materials#Pyrrhotite|Pyrrhotite]] (Ore clumps)
