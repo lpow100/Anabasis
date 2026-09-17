@@ -33,7 +33,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.Beeswax, 10)
+                .AddIngredient(ItemID.BeeWax, 10)
                 .AddIngredient(ItemID.BottledHoney, 5)
                 .AddTile(TileID.WorkBenches)
                 .Register();
