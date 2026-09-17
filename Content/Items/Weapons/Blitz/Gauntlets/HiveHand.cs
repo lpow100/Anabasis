@@ -15,7 +15,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
         const int dashCooldown = 50;
         const int dashTime = 17;
         const float dashSpeed = 10.75f;
-        const int dashDamage = 85;
+        const int dashDamage = 75;
         const int momentumCost = 25;
 
         public override void SetDefaults()
@@ -42,7 +42,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
 
         public override bool? UseItem(Player player)
         {
-            int beeCount = Main.rand.Next(19,22);
+            int beeCount = Main.rand.Next(5,7);
 
             BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
             if (blitzPlayer.momentum <= momentumCost || blitzPlayer.dashDuration > 0 || player.dashDelay > 0)
@@ -59,7 +59,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
                     player.position,
                     beeDir,
                     ProjectileID.Bee,
-                    dashDamage / 4,
+                    dashDamage / beeCount,
                     3.4f
                 );
             }

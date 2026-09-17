@@ -32,15 +32,6 @@ namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
             Item.value = Item.buyPrice(silver: 180);
         }
 
-        public override void AddRecipes()
-        {
-            CreateRecipe()
-                .AddIngredient<DeerPelt>(8)
-                .AddIngredient(ItemID.Leather, 3)
-                .AddTile(TileID.Anvils)
-                .Register();
-        }
-
         public override bool? UseItem(Player player)
         {
             AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Pounce, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);

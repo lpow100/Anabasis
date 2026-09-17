@@ -1,4 +1,4 @@
-﻿using Terraria;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Anabasis.Content.Buffs;
@@ -7,13 +7,13 @@ using Anabasis.Core;
 
 namespace Anabasis.Content.Items.Weapons.Blitz.Daggers
 {
-    public class AntlionDagger : ModItem
+    public class DemonicBlade : ModItem
     {
-        const int dashCooldown = 50;
+        const int dashCooldown = 45;
         const int dashTime = 16;
-        const float dashSpeed = 12.5f;
+        const float dashSpeed = 11.25f;
         const int dashDamage = 50;
-        const int momentumCost = 15;
+        const int momentumCost = 18;
 
         public override void SetDefaults()
         {

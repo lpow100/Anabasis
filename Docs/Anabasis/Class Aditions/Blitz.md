@@ -54,32 +54,41 @@ Gauntlet; Deals 11 damage, 3.9 sec cooldown for dash, 16 length dash
 Found in dungeon chests
 ## Pre-WoF
 ### Ocean's Tide
-Gauntlet; Deals 13 damage 3.8 sec cooldown for dash, 15 length dash
-Bounces back upon hitting an enemy
+Dagger; 
 Crafted with 13 sea stone at an anvil
 # Armor
 ## Light Rag Set
-Set Bonus +2 blitz damage
+Set Bonus +13 blitz damage
 ### Cloth Mask
-+1 blitz damage
-+2% momentum generation
++3% momentum generation
 2 defense
 "A mask weaved with fine materials, spun to be light"
 Crafted with 10 silk, 5 platinum/gold bars and 5 rope at a loom
 ### Light Shirt
-+2 blitz damage
-+1% momentum generation
-3 defense
++2% momentum generation
+4 defense
 "A shirt weaved with fine materials, made to be agile"
 Crafted with 20 silk, 6 platinum/gold bars and 7 rope at a loom
 ### Rag Leggings
-+3% momentum generation
++4% momentum generation
 2 defense
 "Leggings weaved with fine materials, sewed to be quick"
 Crafted with 8 silk, 4 platinum/gold bars and 4 rope at a loom
 ## Interstellar Set
-Set Bonus: +5% momentum generation
+Set Bonus: +15% momentum generation
 +3 Blitz damage
+### Comet Headwear
++4 Blitz damage
+5 defense
+Crafted with 7 meteorite bars and 10 cloud blocks at an anvil
+### Asteroid Breastplate
++5 Blitz damage
+6 defense
+Crafted with 12 meteorite bars and 15 cloud blocks at an anvil
+### Space Debris Leggings
++4 Blitz damage
+5 defense
+Crafted with 6 meteorite bars and 10 cloud blocks at an anvil
 ## Shell Set
 Set Bonus: +10% blitz critical strike chance
 ### Seashell Helm

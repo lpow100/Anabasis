@@ -245,6 +245,21 @@ Items: {
 		DisplayName: Hive Hand
 		Tooltip: ""
 	}
+
+	BlueKnuckles: {
+		DisplayName: Blue Knuckles
+		Tooltip: ""
+	}
+
+	SuperSoftGlove: {
+		DisplayName: Super Soft Glove
+		Tooltip: ""
+	}
+
+	DemonicBlade: {
+		DisplayName: Demonic Blade
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
