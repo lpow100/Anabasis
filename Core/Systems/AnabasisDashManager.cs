@@ -27,8 +27,9 @@ namespace Anabasis.Core.Systems
             BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
             if (blitzPlayer.IsDashing) return;
 
+            bool isBlitz = player.HeldItem.DamageType == ModContent.GetInstance<BlitzDamageClass>() || blitzPlayer.momentumBonus > 0;
 
-            if (Main.LocalPlayer.HeldItem.DamageType != ModContent.GetInstance<BlitzDamageClass>())
+            if (!isBlitz)
             {
                 blitzPlayer.momentum -= 1f / 6f;
                 if (blitzPlayer.momentum < 0) blitzPlayer.momentum = 0;
@@ -47,7 +48,7 @@ namespace Anabasis.Core.Systems
                 double speed = Math.Sqrt(speedSquared);
 
                 momentumGain = maxMomentumGain *
-                               (1.0 - Math.Pow(2.0, -speed / 55.0));
+                               (1.0 - Math.Pow(2.0, -speed / 48.0));
             }
 
             blitzPlayer.momentum += (float)momentumGain / 60;
@@ -65,7 +66,7 @@ namespace Anabasis.Core.Systems
             ForcedDashStart(player, type, dashDurationTicks, dashSpeed, dashCooldown, dashDamage, momentumCost);
         }
 
-        public static void ForcedDashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0)
+        public static void ForcedDashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0, Vector2 dashDirection = )
         {
             BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
 
@@ -83,11 +84,14 @@ namespace Anabasis.Core.Systems
             blitzPlayer.dashDuration = dashDurationTicks;
             blitzPlayer.dashCooldown = dashCooldown;
 
-           Vector2 dashDir = Main.MouseWorld - player.position;
-            dashDir.Normalize();
-            dashDir.Y *= 1.8f; // Gravity offset
+            if (dashDirection == null)
+            {
+                dashDirection = Main.MouseWorld - player.position;
+                dashDirection.Normalize();
+                dashDirection.Y *= 1.8f; // Gravity offset
+            }
 
-            player.velocity = dashDir * dashSpeed;
+            player.velocity = dashDirection * dashSpeed;
             blitzPlayer.currentDashSpeed = player.velocity.X;
 
             if ((int)type > (int)DashType.Invincible)

@@ -28,6 +28,7 @@ namespace Anabasis.Core.ModPlayers
 
         public float momentum;
         public float maxMomentum = 100.0f;
+        public float momentumBonus = 0.0f;
 
         public override void PostUpdate()
         {
