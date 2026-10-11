@@ -10,20 +10,17 @@ Also mark stage in game (If applicable):
 * (P_ Post-ML) - Post Moonlord, after killing the Moonlord
 # [[Bosses]]
 - [ ] (P3 HM) Finish cloud elemental and animations
-- [ ] (P3 Pre-HM) Fix Giant Eel Drops
-- [ ] (P4 Post-ML) Finish Phobos and Deimos sprites and animations
+- [ ] (P2 Pre-HM) Fix Giant Eel Drops
+- [ ] (P1 Pre-HM) Improve Giant Eel AI
+- [ ] (P3 Post-ML) Make Phobos and Deimos sprites
 # Progression
+* [ ] (P3 Post-ML) Make gear for [[Materials#Sea Stone|Sea Stone]]
 * [ ] (P3 HM) Add gear for [[Materials#Fulgurite|Fulgurite]]
-* [ ] (P2 Pre-HM) Sprite and code Pre-HM [[Blitz]] weapons
-* [ ] (P3 HM) Make HM [[Blitz]] weapons
-* [ ] (P2 Pre-HM) Make Pre-HM [[Blitz]] Armor
-* [ ] (P2 Pre-HM) Make Pre-HM [[Blitz]] Accesories
-* [ ] (P4 Post-ML) Design all classes post-ml progression
-* [ ] (P4 Post-ML) Make gear for [[Materials#Pyroxene|Pyroxene]]
+* [ ] (P2 Post-ML) Design all classes post-ml progression
+* [ ] (P3 Post-ML) Make gear for [[Materials#Pyrrhotite|Pyrrhotite]]
 * [x] (P4 Pre-HM) Add Pre-HM class accessories
 # World
-- [ ] (P4 Post-ML) Create Basalt Crags Biome
+- [ ] (P3 Post-ML) Create Basalt Crags Biome
+- [ ] (P2) Finish Sunken City
 # Balance
-- [ ] (P3 Pre-HM) Improve Giant Eel AI
 # UI
-* [ ] (P3) Improve Momentum UI

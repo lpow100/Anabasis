@@ -22,53 +22,19 @@ namespace Anabasis.Core.Systems
             player.immuneTime = dashDurationTicks + extraImmuneTime;
         }
 
-        private static void GainMomentum(Player player)
+        public static void DashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0)
         {
-            BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
-            if (blitzPlayer.IsDashing) return;
+            DashPlayer DashPlayer = player.GetModPlayer<DashPlayer>();
 
-            bool isBlitz = player.HeldItem.DamageType == ModContent.GetInstance<BlitzDamageClass>() || blitzPlayer.momentumBonus > 0;
-
-            if (!isBlitz)
-            {
-                blitzPlayer.momentum -= 1f / 6f;
-                if (blitzPlayer.momentum < 0) blitzPlayer.momentum = 0;
-
-                return;
-            }
-
-            double maxMomentumGain = blitzPlayer.maxMomentum / 8 * 7;
-
-            double speedSquared = player.velocity.LengthSquared();
-
-            double momentumGain = 0.0;
-
-            if (speedSquared > 0.0)
-            {
-                double speed = Math.Sqrt(speedSquared);
-
-                momentumGain = maxMomentumGain *
-                               (1.0 - Math.Pow(2.0, -speed / 48.0));
-            }
-
-            blitzPlayer.momentum += (float)momentumGain / 60;
-
-            if (blitzPlayer.momentum > blitzPlayer.maxMomentum) blitzPlayer.momentum = blitzPlayer.maxMomentum;
-        }
-
-        public static void DashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0)
-        {
-            BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
-
-            if (blitzPlayer.momentum <= momentumCost || blitzPlayer.dashDuration > 0 || player.dashDelay > 0)
+            if (DashPlayer.dashDuration > 0 || player.dashDelay > 0)
                 return;
 
-            ForcedDashStart(player, type, dashDurationTicks, dashSpeed, dashCooldown, dashDamage, momentumCost);
+            ForcedDashStart(player, type, dashDurationTicks, dashSpeed, dashCooldown, dashDamage);
         }
 
-        public static void ForcedDashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0, int momentumCost = 0, Vector2 dashDirection = )
+        public static void ForcedDashStart(Player player, DashType type, int dashDurationTicks, float dashSpeed, int dashCooldown, int dashDamage = 0)
         {
-            BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
+            DashPlayer DashPlayer = player.GetModPlayer<DashPlayer>();
 
             if (player.whoAmI != Main.myPlayer)
                 return;
@@ -79,30 +45,25 @@ namespace Anabasis.Core.Systems
             player.dashType = 142;
             player.dashDelay = dashDurationTicks + dashCooldown;
 
-            blitzPlayer.currentDashType = type;
-            blitzPlayer.currentDashDamage = dashDamage;
-            blitzPlayer.dashDuration = dashDurationTicks;
-            blitzPlayer.dashCooldown = dashCooldown;
+            DashPlayer.currentDashType = type;
+            DashPlayer.currentDashDamage = dashDamage;
+            DashPlayer.dashDuration = dashDurationTicks;
+            DashPlayer.dashCooldown = dashCooldown;
 
-            if (dashDirection == null)
-            {
-                dashDirection = Main.MouseWorld - player.position;
-                dashDirection.Normalize();
-                dashDirection.Y *= 1.8f; // Gravity offset
-            }
+            Vector2 dashDirection = Main.MouseWorld - player.position;
+                    dashDirection.Normalize();
+                    dashDirection.Y *= 1.8f; // Gravity offset
 
             player.velocity = dashDirection * dashSpeed;
-            blitzPlayer.currentDashSpeed = player.velocity.X;
+            DashPlayer.currentDashSpeed = player.velocity.X;
 
             if ((int)type > (int)DashType.Invincible)
                 MakeImmuneDuringDash(player, dashDurationTicks, 95);
-
-            blitzPlayer.momentum -= momentumCost;
         }
 
         public static void UpdateDashInfo(Player player)
         {
-            BlitzPlayer dashPlayer = player.GetModPlayer<BlitzPlayer>();
+            DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
 
             float oldDashDuration = dashPlayer.dashDuration;
 
@@ -123,9 +84,7 @@ namespace Anabasis.Core.Systems
 
         public static void UpdateDashes(Player player)
         {
-            GainMomentum(player);
-
-            BlitzPlayer dashPlayer = player.GetModPlayer<BlitzPlayer>();
+            DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
 
             UpdateDashInfo(player);
 
@@ -151,7 +110,7 @@ namespace Anabasis.Core.Systems
 
         private static void RamDashAttack(Player player)
         {
-            BlitzPlayer dashPlayer = player.GetModPlayer<BlitzPlayer>();
+            DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
 
             Rectangle hurtbox = new Rectangle(
                         (int)(player.position.X + player.velocity.X * 0.5f - 4f),
@@ -179,7 +138,7 @@ namespace Anabasis.Core.Systems
 
         private static void RamDashHitNPC(Player player, NPC npc, Rectangle hurtbox)
         {
-            BlitzPlayer dashPlayer = player.GetModPlayer<BlitzPlayer>();
+            DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
 
             if (hurtbox.Intersects(npc.getRect()) && (npc.noTileCollide || player.CanHit(npc)))
             {
@@ -203,7 +162,7 @@ namespace Anabasis.Core.Systems
 
         private static void PounceDashAttack(Player player)
         {
-            BlitzPlayer dashPlayer = player.GetModPlayer<BlitzPlayer>();
+            DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
 
             if (dashPlayer.dashDuration == 1)
             {
@@ -239,9 +198,9 @@ namespace Anabasis.Core.Systems
 
         private static void PounceDashHitNPC(Player player)
         {
-            BlitzPlayer dashPlayer = player.GetModPlayer<BlitzPlayer>();
+            DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
 
-            int dashDamage = (int)player.GetTotalDamage<BlitzDamageClass>().ApplyTo(player.GetModPlayer<BlitzPlayer>().currentDashDamage);
+            int dashDamage = (int)player.GetTotalDamage<BlitzDamageClass>().ApplyTo(player.GetModPlayer<DashPlayer>().currentDashDamage);
 
             Projectile ram = Projectile.NewProjectileDirect(
                 player.GetSource_FromThis(),

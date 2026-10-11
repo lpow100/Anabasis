@@ -260,6 +260,21 @@ Items: {
 		DisplayName: Demonic Blade
 		Tooltip: ""
 	}
+
+	SunkenBrick: {
+		DisplayName: Sunken Brick
+		Tooltip: ""
+	}
+
+	SunkenWall: {
+		Tooltip: ""
+		DisplayName: Sunken Wall
+	}
+
+	MartianDistressSignal: {
+		DisplayName: Martian Distress Signal
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -306,8 +321,16 @@ NPCs: {
 	GiantEelBody.DisplayName: Giant Eel Body
 	GiantEelHead.DisplayName: Giant Eel Head
 	GiantEelTail.DisplayName: Giant Eel Tail
+	Deimos.DisplayName: Deimos
+	Phobos.DisplayName: Phobos
 }
 
 DamageClasses.AlchemistDamageClass.DisplayName: Alchemy Damage
-Tiles.SeaStone.MapEntry: Sea Stone
+
+Tiles: {
+	SeaStone.MapEntry: Sea Stone
+	SunkenBrick.MapEntry: Sunken Brick
+}
+
 UI.ExampleResource: Momentum: {0} / {1}
+Walls.SunkenWall.MapEntry: Sunken Wall

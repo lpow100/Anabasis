@@ -125,12 +125,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lore.md",
+                "file": "Bosses.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lore"
+              "title": "Bosses"
             }
           }
         ],
@@ -209,7 +209,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Lore.md",
+                "file": "Bosses.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -299,12 +299,12 @@
   },
   "active": "51f8efe6bbaaf9c5",
   "lastOpenFiles": [
-    "Bosses.md",
-    "Lore.md",
-    "Biomes.md",
-    "Class Aditions/Blitz.md",
     "To Do.md",
     "Materials.md",
+    "Biomes.md",
+    "Bosses.md",
+    "Lore.md",
+    "Class Aditions/Blitz.md",
     "Changes.md",
     "alchemist.md",
     "Class Aditions/Mage.md",

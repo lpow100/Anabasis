@@ -1,5 +1,3 @@
-using Anabasis.Content.Items.Weapons.Blitz.Gauntlets;
-using rail;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,7 +28,7 @@ namespace Anabasis.Core.Systems
 				if (chestTile.TileType == TileID.Containers && chestTile.TileFrameX == 2 * 36) {
 					if (WorldGen.genRand.NextBool(5))
 						continue;
-                    AddSecndItemToChest(ModContent.ItemType<BlueKnuckles>(),chest);
+                    //AddSecndItemToChest(ModContent.ItemType<BlueKnuckles>(),chest);
                 }
             }
         }

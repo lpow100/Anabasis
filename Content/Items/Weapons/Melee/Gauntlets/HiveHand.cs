@@ -8,15 +8,14 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
+namespace Anabasis.Content.Items.Weapons.Melee.Gauntlets
 {
     public class HiveHand : ModItem
     {
-        const int dashCooldown = 50;
+        const int dashCooldown = 225;
         const int dashTime = 17;
         const float dashSpeed = 10.75f;
         const int dashDamage = 75;
-        const int momentumCost = 25;
 
         public override void SetDefaults()
         {
@@ -44,8 +43,8 @@ namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
         {
             int beeCount = Main.rand.Next(5,7);
 
-            BlitzPlayer blitzPlayer = player.GetModPlayer<BlitzPlayer>();
-            if (blitzPlayer.momentum <= momentumCost || blitzPlayer.dashDuration > 0 || player.dashDelay > 0)
+            DashPlayer blitzPlayer = player.GetModPlayer<DashPlayer>();
+            if (blitzPlayer.dashDuration > 0 || player.dashDelay > 0)
                 beeCount = 0;
 
             for (int i = 0; i < beeCount; i++)
@@ -63,7 +62,7 @@ namespace Anabasis.Content.Items.Weapons.Blitz.Gauntlets
                     3.4f
                 );
             }
-            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Pounce, dashTime, dashSpeed, dashCooldown, dashDamage, momentumCost);
+            AnabasisDashManager.DashStart(player, AnabasisDashManager.DashType.Pounce, dashTime, dashSpeed, dashCooldown, dashDamage);
             return base.UseItem(player);
         }
     }

@@ -7,6 +7,10 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
+	<ItemGroup>
+	  <Folder Include="Content\Items\Armor\" />
+	  <Folder Include="Content\Projectiles\NewFolder\" />
+	</ItemGroup>
 
 	<!-- References -->
 
