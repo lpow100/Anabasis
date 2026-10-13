@@ -11,7 +11,8 @@ namespace Anabasis.Content.Items.Summons
     {
         public override void SetStaticDefaults()
         {
-            Item.ResearchUnlockCount = 3;
+            Item.ResearchUnlockCount = 3; 
+            NPCID.Sets.MPAllowedEnemies[ModContent.NPCType<Phobos>()] = true;
         }
 
         public override void SetDefaults()

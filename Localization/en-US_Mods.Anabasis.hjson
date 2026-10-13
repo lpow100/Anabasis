@@ -2,60 +2,6 @@
 # Please read https://github.com/tModLoader/tModLoader/wiki/Localization to learn more about localization and these files.
 
 Items: {
-	PosionedStick: {
-		DisplayName: Posioned Stick
-		Tooltip: Shoots small posioned globs
-	}
-
-	BrokenBottle: {
-		DisplayName: Broken Bottle
-		Tooltip:
-			'''
-			You can throw the glass shards
-			Be careful to not get cut
-			'''
-	}
-
-	ExplosiveVial: {
-		DisplayName: Explosive Vial
-		Tooltip: A potion dealing explosive damage in an area
-	}
-
-	RaggedStorageCloth: {
-		DisplayName: Ragged Storage Cloth
-		Tooltip: 7.5% increased alchemist weapon save chance
-	}
-
-	FlamingCrimsrod: {
-		DisplayName: Flaming Crimsrod
-		Tooltip: The Crimson's flaming rod
-	}
-
-	FlamingCorruptor: {
-		DisplayName: Flaming Corruptor
-		Tooltip: The Corruption's flaming rod
-	}
-
-	StingerPole: {
-		DisplayName: Stinger Pole
-		Tooltip: A collection of poisonous stingers fashioned on a pole
-	}
-
-	BloodSyringe: {
-		DisplayName: Blood Syringe
-		Tooltip: Used to poke enemies to death
-	}
-
-	PainfulPocketSand: {
-		DisplayName: Painful Pocket Sand
-		Tooltip: Pocket Sand, now with spikes!
-	}
-
-	InterstellarSnowflake: {
-		DisplayName: Interstellar Snowflake
-		Tooltip: A snowflake ready to be used for combat
-	}
-
 	Fulgurite: {
 		DisplayName: Fulgurite
 		Tooltip: A shocked element from the sky
@@ -71,99 +17,14 @@ Items: {
 		Tooltip: A shocking Pickaxe
 	}
 
-	CoralAmalgamation: {
-		DisplayName: Coral Amalgamation
-		Tooltip: A mixture of all the colors of coral
-	}
-
-	SporeMixture: {
-		DisplayName: Spore Mixture
-		Tooltip: A collection of different glowing spores
-	}
-
-	ShockBolt: {
-		DisplayName: Shock Bolt
-		Tooltip: Can shock an enemy in place
-	}
-
-	CloudAlchemyBag: {
-		DisplayName: Sky High Alchemy bag
-		Tooltip: 17% increased chance to not consume alchemy weapons
-	}
-
-	BottleCannon: {
-		DisplayName: Bottle Cannon
-		Tooltip: A cannon to slowly launch bottles
-	}
-
-	BoneSpikes: {
-		DisplayName: Bone Spikes
-		Tooltip: Shattering spikes of bone
-	}
-
-	BlazingBottle: {
-		DisplayName: Blazing Bottle
-		Tooltip: A throwable flask of fire
-	}
-
-	HoneyVial: {
-		DisplayName: Honey Vial
-		Tooltip: A bee's medicine
-	}
-
-	PoisonedStick: {
-		DisplayName: Poisoned Stick
-		Tooltip: A stick riddled with disease
-	}
-
-	WellWornHeadgear: {
-		SetBonus: Alchemy damage increased by 2
-		DisplayName: Well Worn Headgear
-		Tooltip: 4% increased alchemy crit chance
-	}
-
-	RaggedWornLeggings: {
-		DisplayName: Ragged Worn Leggings
-		Tooltip: Alchemy damage increased by 1
-	}
-
-	MushroomWear: {
-		DisplayName: Mushroom Wear
-		Tooltip: Alchemy damage increased by 5
-	}
-
 	DeerPelt: {
 		DisplayName: Deer Pelt
 		Tooltip: A piece torn off Deerclops hislef
 	}
 
-	AlchemistEmblem: {
-		Tooltip: 15% increased alchemy damage
-		DisplayName: Alchemist Emblem
-	}
-
-	GlowingCap: {
-		SetBonus:
-			'''
-			Alchemy damage increased by 3
-			2% increased alchemy crit chance
-			'''
-		DisplayName: Glowing Cap
-		Tooltip:
-			'''
-			Alchemy damage increased by 1
-			4% increased alchemy crit chance
-			'''
-	}
-
-	MushroomBottoms: {
-		DisplayName: Mushroom Bottoms
-		Tooltip: 10% increased alchemy weapon save chance
-	}
-
 	Neutronium: {
 		DisplayName: Neutronium
-		Tooltip: ""
+		Tooltip: An ultradense material from the heart of a dying star
 	}
 
 	PetConch: {
@@ -176,14 +37,9 @@ Items: {
 		Tooltip: ""
 	}
 
-	ElectronicsJar: {
-		DisplayName: Electronics Jar
-		Tooltip: ""
-	}
-
 	FancyCrown: {
 		DisplayName: Fancy Crown
-		Tooltip: ""
+		Tooltip: A bosses contributions
 	}
 
 	CoconutBrewJuice: {
@@ -302,7 +158,9 @@ Projectiles: {
 	DirectStrike.DisplayName: Direct Strike
 	DaggerStrikeProjectile.DisplayName: Dagger Strike Projectile
 	AntlionDaggerProjectile.DisplayName: Antlion Dagger Projectile
-	AOEStrikeProjectile.DisplayName: A O E Strike Projectile
+	AOEStrikeProjectile.DisplayName: AOE Strike Projectile
+	MartianFlame.DisplayName: Martian Flame
+	MartianLaser.DisplayName: Martian Laser
 }
 
 Buffs: {
@@ -314,6 +172,11 @@ Buffs: {
 	ShockedDebuff: {
 		DisplayName: Shocked Debuff
 		Description: You're frozen from the shock
+	}
+
+	MartianFire: {
+		DisplayName: Martian Fire
+		Description: You're losing life!
 	}
 }
 
