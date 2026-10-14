@@ -20,3 +20,7 @@ This repository is developed collaboratively. Contributions, testing, balancing 
 
 This repository is kept open source to allow collaboration and allow other people to learn from the code.
 
+## License
+
+Licensed under the GNU General Public License v3.0 or later (GPLv3+). 
+Source code available at: [Github - Anabasis](https://github.com/lpow100/Anabasis)
