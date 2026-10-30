@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System.IO;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -10,6 +11,24 @@ namespace Anabasis.Content.Bosses.PhobosAndDeimos
     {
         protected abstract int PartnerType { get; }
         public int partner = -1;
+
+        protected float Timer 
+        {
+            get { return NPC.ai[0]; } 
+            set { NPC.ai[0] = value; }
+        }
+        protected float Attack
+        {
+            get { return NPC.ai[1]; }
+            set { NPC.ai[1] = value; }
+        }
+        protected Vector2 lastDashOffset
+        {
+            get { return new Vector2(NPC.ai[2], NPC.ai[3]); }
+            set { NPC.ai[2] = value.X; NPC.ai[3] = value.Y; }
+        }
+
+        protected bool followingAfterDash;
 
         public override void SetStaticDefaults()
         {
@@ -28,8 +47,8 @@ namespace Anabasis.Content.Bosses.PhobosAndDeimos
             NPC.height = 62;
             NPC.scale = 1.75f;
             NPC.damage = 180;
-            NPC.defense = 18;
-            NPC.lifeMax = 355000;
+            NPC.defense = 65;
+            NPC.lifeMax = 217500;
             NPC.boss = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
@@ -76,6 +95,21 @@ namespace Anabasis.Content.Bosses.PhobosAndDeimos
                 desired = Vector2.Normalize(desired) * speed;
 
             NPC.velocity = (NPC.velocity * 24f + desired) / 25f;
+        }
+
+        public void SwitchAttack()
+        {
+            Attack = (Attack + 1) % 2;
+        }
+
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(followingAfterDash);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            followingAfterDash = reader.ReadBoolean();
         }
     }
 }

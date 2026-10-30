@@ -14,7 +14,7 @@ namespace Anabasis.Content.Bosses.PhobosAndDeimos
     [AutoloadBossHead]
     public class Phobos : BaseMartianMoon
     {
-        protected override int PartnerType => ModContent.NPCType<Deimos>();
+        protected override int PartnerType => ModContent.NPCType<Deimos>(); 
 
         public override void AI()
         {
@@ -38,22 +38,16 @@ namespace Anabasis.Content.Bosses.PhobosAndDeimos
             bool phaseTwo = NPC.life < NPC.lifeMax / 2;
             float speed = phaseTwo ? 9f : 6f;
             float side = -1f;
-            Vector2 offset = new Vector2(side * 260f, -150f);
-            Vector2 destination = target.Center + offset;
-
-
+            Vector2 shootOffset = new Vector2(side * 260f, -150f);
             Vector2 charge = target.Center - NPC.Center;
 
-            NPC.ai[0]++;
-            if (NPC.ai[0] >= (phaseTwo ? 70f : 100f))
+            Timer ++;
+
+            if (Attack == 1)
             {
-                NPC.ai[0] = 0f;
-                if (NPC.ai[1] < 8)
+                if (Timer >= (phaseTwo ? 100f : 140f))
                 {
-                    if (charge.LengthSquared() > 0f)
-                        NPC.velocity = Vector2.Normalize(charge) * (phaseTwo ? 32f : 28f);
-                } else
-                {
+                    Timer = 0f;
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         Vector2 shot = target.Center - NPC.Center;
@@ -71,15 +65,42 @@ namespace Anabasis.Content.Bosses.PhobosAndDeimos
                         );
                     }
                 }
-                NPC.ai[1]++;
-                NPC.ai[1] = NPC.ai[1] % 16;
-            }
-            else
-            {
-                if (partnerNPC != null && partnerNPC.active)
-                    destination += new Vector2(0f, 80f);
+                else
+                {
+                    if (partnerNPC != null && partnerNPC.active)
+                        shootOffset += new Vector2(0f, 80f);
 
-                MoveToward(destination, speed);
+                    MoveToward(target.Center + shootOffset, speed);
+                }
+            } else
+            {
+                float dashInterval = phaseTwo ? 70f : 100f;
+
+                if (Timer >= dashInterval)
+                {
+                    Timer = 0f;
+
+                    float dashSpeed = phaseTwo ? 33f : 29f;
+                    float chargeLengthSquared = charge.LengthSquared();
+
+                    if (chargeLengthSquared > 0.001f)
+                    {
+                        NPC.velocity = charge * (dashSpeed / MathF.Sqrt(chargeLengthSquared));
+                        followingAfterDash = false;
+                        NPC.netUpdate = true;
+                    }
+                }
+                else
+                {
+                    if (NPC.velocity.LengthSquared() <= 3f && !followingAfterDash)
+                    {
+                        followingAfterDash = true;
+                        lastDashOffset = charge;
+                    } else if (followingAfterDash)
+                    {
+                        MoveToward(lastDashOffset, speed);
+                    }
+                }
             }
         }
     }
